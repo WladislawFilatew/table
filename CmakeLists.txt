@@ -1,0 +1,39 @@
+#Главный CmakeList
+cmake_minimum_required(VERSION 2.8)
+set(PROJECT_NAME LabaTable)
+project(${PROJECT_NAME})
+
+
+set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
+if(NOT CMAKE_BUILD_TYPE)
+  set(CMAKE_BUILD_TYPE Release)
+endif()
+
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
+add_subdirectory(gtest)
+
+
+#стек
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/polinom/listlib ${CMAKE_CURRENT_SOURCE_DIR}/polinom/polinomlib)
+add_subdirectory(polinom)
+
+#постфикс
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/postfix/lib)
+add_subdirectory(postfix)
+
+
+#таблицы
+set(INCLUDE_DIRS "")
+file(GLOB_RECURSE HEADER_FILES "${CMAKE_CURRENT_SOURCE_DIR}/postfix/table/*.h")
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/postfix/lib)
+foreach(HEADER ${HEADER_FILES})
+    get_filename_component(HEADER_DIR ${HEADER} DIRECTORY)
+    list(APPEND INCLUDE_DIRS ${HEADER_DIR})
+endforeach()
+list(REMOVE_DUPLICATES INCLUDE_DIRS)
+include_directories(${INCLUDE_DIRS})
+add_subdirectory(table)
+
+
+file(GLOB CPP "*.CPP")
+add_executable(${PROJECT_NAME} ${srcs}) 
