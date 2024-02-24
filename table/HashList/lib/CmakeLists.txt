@@ -1,7 +1,7 @@
-#Библиотека
+#Библиотека HashList
 cmake_minimum_required(VERSION 2.8)
 
-Set(name ${PROJECT_NAME}_lib)
+Set(name ${PROJECT_NAME}lib)
 
 
 file(GLOB CPP "*.CPP")

@@ -1,1 +1,8 @@
-Режим вывода команд на экран (ECHO) включен.
+#include <iostream>
+#include "table.h"
+using namespace std;
+
+
+int main() {
+	table* k;
+}

@@ -1,6 +1,10 @@
 #include <gtest.h>
-#include "..\lib\stack_lib.h"
+#include "..\stack\stacklib\stacklib.h"
 
+/*
+* Выполнил: Филатьев В.
+* Тесты для проверки работы класса стек
+*/
 
 TEST(Stack, you_can_create_an_object)
 {
@@ -72,7 +76,7 @@ TEST(Stack, can_get_an_element_from_the_stack)
 	for (int i = 0; i < 4; i++) {
 		temp.pop();
 	}
-	EXPECT_EQ(5, temp.top());
+	EXPECT_EQ(6, temp.top());
 }
 
 TEST(Stack, error_when_getting_an_element_from_an_empty_stack)

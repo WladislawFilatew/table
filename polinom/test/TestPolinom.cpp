@@ -1,6 +1,11 @@
 #include "TPolinom.h"
 #include <gtest.h>
 
+/*
+* Выполнил: Филатьев В.
+* Тесты для класса polinom
+*/
+
 TEST(Polinom, Created_polinom_is_empty) {
 	TPolinom a;
 	EXPECT_EQ(a.ToString(), "");

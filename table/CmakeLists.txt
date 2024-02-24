@@ -1,24 +1,39 @@
-#ѓлавный
+#Проекд таблицы с виртуальной таблицой
 cmake_minimum_required(VERSION 2.8)
-project(Laba)
+project(tables)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
-add_subdirectory(gtest)
+
+#Подключение различных таблиц
+#Tree
+include_directories(Tree/lib)
+add_subdirectory(Tree)
+#HashChain
+include_directories(HashChain/lib)
+add_subdirectory(HashChain)
+#HashList
+include_directories(HashList/lib)
+add_subdirectory(HashList)
+#LinerOnArray
+include_directories(LinearOnArray/lib)
+add_subdirectory(LinearOnArray)
+#LinearOnList
+include_directories(LinearOnList/lib)
+add_subdirectory(LinearOnList)
+#OrderedOnArray
+include_directories(OrderedOnArray/lib)
+add_subdirectory(OrderedOnArray)
 
 
-#стек
-add_subdirectory(stack)
 
-#Калькулятор
-add_subdirectory(calculator)
 
-#очередь
-add_subdirectory(queue)
+add_subdirectory(test)
 
-#Процессор
-add_subdirectory(Processor)
+file(GLOB H "*.h")
+file(GLOB srcs "*.CPP")
+add_executable(${PROJECT_NAME} ${H} ${srcs}) 
+target_link_libraries(${PROJECT_NAME} gtest)

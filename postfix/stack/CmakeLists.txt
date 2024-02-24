@@ -1,6 +1,5 @@
-#Католог
+#CmakeLists для проекта Steck
 cmake_minimum_required(VERSION 2.8)
-
 
 project(stack)
 
@@ -8,19 +7,18 @@ project(stack)
 file(GLOB CPP "*.CPP")
 
 
-set(lib ${PROJECT_NAME}_lib)
-include_directories(${CMAKE_SOURCE_DIR}/lib)
+set(stacklib stacklib)
+include_directories(${CMAKE_SOURCE_DIR}/stacklib)
 
 
-set(test ${PROJECT_NAME}_test)
+set(test stacktest)
 include_directories(${CMAKE_SOURCE_DIR}/test)
 
 
 add_executable(${PROJECT_NAME} ${CPP})
 
 
-
-add_subdirectory(lib)	
+add_subdirectory(stacklib)	
 add_subdirectory(test)
 
-target_link_libraries(${PROJECT_NAME} ${lib})	
+target_link_libraries(${PROJECT_NAME} ${stacklib} gtest)	

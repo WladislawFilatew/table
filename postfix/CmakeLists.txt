@@ -1,27 +1,24 @@
-#Католог
+#CmakeLists для проекта postfix
 cmake_minimum_required(VERSION 2.8)
-
 
 project(postfix)
 
-
 file(GLOB CPP "*.CPP")
 
+set(postfixlib postfixlib)
+include_directories(${CMAKE_SOURCE_DIR}/postfixlib)
 
-set(lib ${PROJECT_NAME}_lib)
-include_directories(${CMAKE_SOURCE_DIR}/lib)
 
-
-set(test ${PROJECT_NAME}_test)
+set(test postfixtest)
 include_directories(${CMAKE_SOURCE_DIR}/test)
-
+include_directories(${CMAKE_SOURCE_DIR}/stack/stacklib)
 
 
 add_executable(${PROJECT_NAME} ${CPP})
 
 
-
-add_subdirectory(lib)	
+add_subdirectory(postfixlib)	
 add_subdirectory(test)
+add_subdirectory(stack)
 
-target_link_libraries(${PROJECT_NAME} ${lib})	
+target_link_libraries(${PROJECT_NAME} ${postfixlib})	

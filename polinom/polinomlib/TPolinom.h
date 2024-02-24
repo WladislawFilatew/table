@@ -3,7 +3,8 @@
 #include "TMonom.h"
 #include <string>
 
-const int nonDisplayedZeros = 4; // Количество неотображаемых нулей при выводе коэффициента полинома
+const int nonDisplayedZeros = 4; ///< Количество неотображаемых нулей при выводе коэффициента полинома
+
 
 string RemoveSpace(string s);
 

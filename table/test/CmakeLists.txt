@@ -1,7 +1,7 @@
 #Тест
 cmake_minimum_required(VERSION 2.8)
 
-set(name ${PROJECT_NAME}_test)
+set(name ${PROJECT_NAME}test)
 
 file(GLOB CPP "*.CPP")
 

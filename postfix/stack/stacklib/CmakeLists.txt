@@ -1,0 +1,10 @@
+#Библиотека stack
+cmake_minimum_required(VERSION 2.8)
+
+Set(name ${PROJECT_NAME}lib)
+
+
+file(GLOB CPP "*.CPP")
+file(GLOB H "*.h")
+
+add_library(${name} STATIC ${CPP} ${H})

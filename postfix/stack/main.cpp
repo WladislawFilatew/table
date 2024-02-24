@@ -1,12 +1,18 @@
 #include <iostream>
-#include "lib/stack_lib.h"
+#include "stacklib/stacklib.h"
 using namespace std;
+
+/*
+* Выполнил: Филатьев В.
+* main для проверки работы класса стек
+*/
 
 void f(MyStack<double>& a) {
 	cout << a.size();
 }
 
 int main() {
+
 	MyStack<double> temp;
 	temp.push(1.1);
 	temp.push(2.2);
@@ -17,5 +23,6 @@ int main() {
 		temp.pop();
 	}*/
 	cout << endl;
+	temp.pop();
 	f(temp);
 }

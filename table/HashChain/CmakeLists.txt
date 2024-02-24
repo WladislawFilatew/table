@@ -1,24 +1,19 @@
-#ѓлавный
+#CmakeLists HashChain
 cmake_minimum_required(VERSION 2.8)
-project(Laba)
+project(HashChain)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Configs" FORCE)
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
-add_subdirectory(gtest)
+#HashChain
+include_directories(lib)
+add_subdirectory(lib)
+
+add_subdirectory(test)
 
 
-#стек
-add_subdirectory(stack)
-
-#Калькулятор
-add_subdirectory(calculator)
-
-#очередь
-add_subdirectory(queue)
-
-#Процессор
-add_subdirectory(Processor)
+file(GLOB srcs "*.CPP")
+add_executable(${PROJECT_NAME} ${srcs})
+target_link_libraries(${PROJECT_NAME} gtest) 

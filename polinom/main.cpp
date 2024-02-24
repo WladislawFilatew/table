@@ -4,6 +4,11 @@
 #include "TPolinom.h"
 using namespace std;
 
+/*
+* Выполнил: Филатьев В.
+* main для проверки работы библиотеки polinom, в библиотеки реализован двунаправленный список
+*/
+
 int vibor(int kol) {
 	char a;
 	do {
