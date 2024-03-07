@@ -125,6 +125,9 @@ public:
 		bool operator!=(const Node<T>* note) {
 			return t != note;
 		}
+		bool operator==(const Node<T>* note) {
+			return t == note;
+		}
 		Node<T>* getNode() {
 			return t;
 		}
@@ -155,6 +158,7 @@ public:
 	* \param[in] входной параметр iterator - итератор по которому требуетс€ вставить €чейку
 	*/
 	void insert(T value, List<T>::iterator it);
+	void erase(List<T>::iterator it);
 };
 
 template<class T>
@@ -283,6 +287,19 @@ inline void List<T>::insert(T value, List<T>::iterator it)
 
 		size++;
 	}
+}
+
+template<class T>
+inline void List<T>::erase(List<T>::iterator it)
+{
+	Node<T>* del = it.getNode();
+	Node<T>* temp = del->pPrev;
+
+	del->pNext->pPrev = temp;
+	temp->pNext = del->pNext;
+
+	delete del;
+	size--;
 }
 
 template<class T>
