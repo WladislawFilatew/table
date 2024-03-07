@@ -1,1 +1,2 @@
-Режим вывода команд на экран (ECHO) включен.
+#include "LinearOnArray.h"
+

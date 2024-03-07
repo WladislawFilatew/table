@@ -4,6 +4,7 @@
     <ClCompile Include="C:\Users\fill2\source\repos\table\polinom\polinomlib\TPolinom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\polinom\polinomlib\TMonom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\Users\fill2\source\repos\table\polinom\polinomlib\TMonom.h">

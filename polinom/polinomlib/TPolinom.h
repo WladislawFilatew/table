@@ -3,12 +3,24 @@
 #include "TMonom.h"
 #include <string>
 
+/*!
+* Выполнил: Филатьев В.
+*/
+
 const int nonDisplayedZeros = 4; ///< Количество неотображаемых нулей при выводе коэффициента полинома
 
-
+/*!
+* Функция удаления пробелов из строки
+* \param[in] входной параметр string - строка с пробелами
+* \param[out] выходной параметр string - строка без пробелов
+*/
 string RemoveSpace(string s);
 
 
+/*!
+* Выполнил: Филатьев В.
+* Класс полином: работает на списке мономов
+*/
 class TPolinom
 {
 public:
@@ -19,7 +31,8 @@ public:
 	TPolinom() {};
 	TPolinom(string str);
 	TPolinom& operator=(TPolinom& other); // присваивание
-	TPolinom& operator+(TPolinom& q); // сложение полиномов
+	TPolinom operator+(TPolinom& q); // сложение полиномов
+	TPolinom operator-(TPolinom& q); // Вычитание полиномов
 	void setPolinom(string s);
 
 	// дополнительно можно реализовать:
@@ -29,6 +42,12 @@ public:
 	TPolinom operator* (TPolinom& other); // умножение полиномов
 	bool operator==(TPolinom& other); // сравнение полиномов на равенство
 	string ToString(); // перевод в строку
+	friend ostream& operator<<(ostream& os, TPolinom& polinom)
+	{
+		cout << polinom.ToString() << endl;
+		return os;
+	}
+
 };
 
 void TPolinom::setPolinom(string s) {
@@ -93,16 +112,23 @@ void TPolinom::operator+(TMonom m)
 }
 
 
-TPolinom& TPolinom::operator+(TPolinom& other)
+TPolinom TPolinom::operator+(TPolinom& other)
 {
+	TPolinom temp = *this;
 	List<TMonom>::iterator it;
 	it = other.list.begin();
 	while (it != other.list.end()) {
-		this->operator+(*it);
+		temp.operator+(*it);
 		it++;
 	}
 
-	return *this;
+	return temp;
+}
+
+inline TPolinom TPolinom::operator-(TPolinom& q)
+{
+	TPolinom temp = q * (-1);
+	return (*this) + temp;
 }
 
 
