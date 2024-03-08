@@ -148,7 +148,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\polinom\polinomlib\TMonom.cpp" />
+    <ClCompile Include="C:\Users\fill2\source\repos\table\polinom\polinomlib\TMonom.cpp" />
     <ClCompile Include="C:\Users\fill2\source\repos\table\polinom\polinomlib\TPolinom.cpp" />
     <ClInclude Include="C:\Users\fill2\source\repos\table\polinom\polinomlib\TMonom.h" />
     <ClInclude Include="C:\Users\fill2\source\repos\table\polinom\polinomlib\TPolinom.h" />

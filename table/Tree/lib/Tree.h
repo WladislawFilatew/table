@@ -1,14 +1,29 @@
-#pragma once
+#include <iostream>
 #include "table.h"
+using namespace std;
 
 
-class Tree: public table {
+
+template <class Key, class Value>
+class Tree : public table<Key, Value> {
 private:
 
+
+
 public:
-	virtual table* operator+() override;
-	virtual table* operator-() override;
-	virtual TPolinom FindPolinom(string key) override;
-	virtual void addPolinom(TPolinom polinom) override;
-	virtual void delPolinom(string key) override;
+
+    Value* Find(Key key) override;
+    virtual bool Insert(Key key, Value value) override;
+    virtual bool Delete(Key key) override;
+
+
+
+    Key GetKey(void) const override;
+    Value GetValuePtr(void) override;
+
+    void Reset(void) override;
+    bool IsTabEnded(void) override;
+    void GoNext(void) override;
+
+
 };

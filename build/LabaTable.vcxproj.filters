@@ -4,11 +4,22 @@
     <ClCompile Include="C:\Users\fill2\source\repos\table\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="C:\Users\fill2\source\repos\table\maneger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\fill2\source\repos\table\maneger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\fill2\source\repos\table\CmakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D78D243D-290E-3B0A-92DC-00FAC1AB0E44}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Source Files">
       <UniqueIdentifier>{D037CEFF-02D8-33FC-9238-DA0C5933C908}</UniqueIdentifier>
     </Filter>
