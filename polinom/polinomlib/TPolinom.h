@@ -24,24 +24,80 @@ string RemoveSpace(string s);
 class TPolinom
 {
 public:
-	List<TMonom> list;
+	List<TMonom> list; ///< Список мономов, список двухнаправленный 
 
-
+	/*!
+	* Конструктор копирования
+	*  \param[in] входной параметр &TPolinom - ссылка на полином
+	*/
 	TPolinom(TPolinom& other);
+
+	/*!
+	* Конструктор копирования
+	*/
 	TPolinom() {};
+
+	/*!
+	* Конструктор копирования
+	*  \param[in] входной параметр string - строковое представление полинома
+	*/
 	TPolinom(string str);
-	TPolinom& operator=(TPolinom& other); // присваивание
-	TPolinom operator+(TPolinom& q); // сложение полиномов
-	TPolinom operator-(TPolinom& q); // Вычитание полиномов
+
+	/*!
+	* Оператор присваивания
+	*/
+	TPolinom& operator=(TPolinom& other);
+
+	/*!
+	* Оператор сложения полиномов
+	*/
+	TPolinom operator+(TPolinom& q);
+
+	/*!
+	* Оператор вычитания полиномов
+	*/
+	TPolinom operator-(TPolinom& q);
+
+	/*!
+	* Метод изменения полинома по входной строке
+	*  \param[in] входной параметр string - строковое представление полинома
+	*/
 	void setPolinom(string s);
 
-	// дополнительно можно реализовать:
-	void operator+(TMonom newMonom); // добавление монома
-	TPolinom operator*(TMonom monom); // умножение мономов 
-	TPolinom operator*(double coef); // умножение полинома на число 
-	TPolinom operator* (TPolinom& other); // умножение полиномов
-	bool operator==(TPolinom& other); // сравнение полиномов на равенство
+	/*!
+	* Оператор сложение с мономом
+	*/
+	void operator+(TMonom newMonom);
+
+	/*!
+	* Оператор умножение на моном
+	*/
+	TPolinom operator*(TMonom monom);
+
+	/*!
+	* Оператор умножение на число
+	*/
+	TPolinom operator*(double coef);
+
+	/*!
+	* Оператор уможения полиномов
+	*/
+	TPolinom operator* (TPolinom& other);
+
+	/*!
+	* Оператор сравнения полиномов
+	*/
+	bool operator==(TPolinom& other);
+
+	/*!
+	* Метод преобразования полинома в строковый вид
+	* \param[out] входной параметр string - строковое представление полинома
+	*/
 	string ToString(); // перевод в строку
+
+	/*!
+	* Метод вывода полинома в консоль
+	*/
 	friend ostream& operator<<(ostream& os, TPolinom& polinom)
 	{
 		cout << polinom.ToString() << endl;

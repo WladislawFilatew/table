@@ -4,6 +4,10 @@
 #include "table.h"
 using namespace std;
 
+/*!
+* Выполнил: Филатьев В.
+* main для проверки класса LinearOnArray
+*/
 
 int main() {
 	table<string, TPolinom>* table;
