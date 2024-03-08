@@ -39,4 +39,5 @@ add_subdirectory(web)
 
 
 file(GLOB srcs "*.CPP")
-add_executable(${PROJECT_NAME} ${srcs}) 
+file(GLOB hrc "*.h")
+add_executable(${PROJECT_NAME} ${hrc} ${srcs}) 
