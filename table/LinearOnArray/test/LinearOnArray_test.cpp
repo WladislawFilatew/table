@@ -2,6 +2,11 @@
 #include <string>
 #include "LinearOnArray.h"
 
+/*!
+* Выполнил: Филатьев В.
+* Тесты для класса LinearOnArray
+*/
+
 //Проверка поиска сушествующего значения
 TEST(LinearOnArray, Find_exists_value)
 {

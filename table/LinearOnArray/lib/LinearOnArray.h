@@ -4,27 +4,70 @@
 #include <list>
 using namespace std;
 
-
+/*!
+* Выполнил: Филатьев В.
+* класс LinearOnArray - линейная таблица на массиве
+* \param[in] входной параметр Key - ключ для строки
+* \param[in] входной параметр Value - значение строки
+*/
 template <class Key, class Value>
 class LinerOnArray : public table<Key,Value> {
 private:
-    vector<Line> array;
-    int MaxSize = 10000;
+    vector<Line> array; ///<Массив строк
 
-    int index = 0;
+    int index = 0; ///< Индекс актуальной строки
 
 public:
+    /*!
+    * Метод поиска строкм по ключу
+    * \param[in] входной параметр Key - ключ строки
+    * \param[out] выходной параметр Value - значение строки, если не найден то nullptr
+    */
     Value* Find(Key key) override;
+
+    /*!
+    * Метод добавление записи в таблицу
+    * \param[in] входной параметр Key - ключ строки
+    * \param[in] входной параметр value - запись
+    * \param[out] выходной параметр bool - true если элемент добавлен успешно
+    */
     virtual bool Insert(Key key, Value value) override;
+
+    /*!
+    * Метод удаления записи из таблицы
+    * \param[in] входной параметр Key - ключ строки
+    * \param[out] выходной параметр bool - true если элемент удален успешно
+    */
     virtual bool Delete(Key key) override;
 
 
 
+    /*!
+    * Метод получения ключа актуальной записи
+    * \param[out] выходной параметр key - ключ актуальной записи
+    */
     Key GetKey(void) const override;
+
+    /*!
+     * Метод получения значение актуальной записи
+    * \param[out] выходной параметр key - значение актуальной записи
+    */
     Value GetValuePtr(void) override;
 
+    /*!
+    * Метод установки актуальной записи на начало таблицы
+    */
     void Reset(void) override;
+
+    /*!
+    * Метод проверки актуальной записи на конец таблицы
+    * \param[out] выходной параметр bool - true если актуальная запись указывает на конец таблицы
+    */
     bool IsTabEnded(void) override;
+
+    /*!
+    * Метод перестановки актуальной записи на следующую строку
+    */
     void GoNext(void) override;
 
 

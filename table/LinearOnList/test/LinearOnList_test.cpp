@@ -2,6 +2,11 @@
 #include <string>
 #include "LinearOnList.h"
 
+/*!
+* Выполнил: Филатьев В.
+* Тесты для класса LinearOnList
+*/
+
 //Проверка поиска сушествующего значения
 TEST(LinearOnList, Find_exists_value)
 {
