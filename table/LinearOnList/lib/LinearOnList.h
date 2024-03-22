@@ -15,6 +15,7 @@ private:
     
     List<Line> array; ///< —писок строк
     Node<Line>* node; ///< ”казатель на активную строку
+    
 
 public:
     /*!

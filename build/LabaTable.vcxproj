@@ -174,7 +174,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   <ItemGroup>
     <ClInclude Include="C:\Users\fill2\source\repos\table\maneger.h" />
     <ClCompile Include="C:\Users\fill2\source\repos\table\main.cpp" />
-    <ClCompile Include="C:\Users\fill2\source\repos\table\maneger.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\fill2\source\repos\table\build\ZERO_CHECK.vcxproj">

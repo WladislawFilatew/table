@@ -22,8 +22,4 @@ int main() {
 
 	cout << *table;
 
-
-
-
-
 }
