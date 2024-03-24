@@ -19,8 +19,7 @@ int main() {
 
 	//cout << table->Count();
 
-	//cout << men.Find("3")->ToPostfix();
-	
+	//cout << men.Find("3");
 	
 
 	

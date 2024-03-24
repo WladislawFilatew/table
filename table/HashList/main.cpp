@@ -19,6 +19,9 @@ int main() {
 	table->Insert("3", *table->Find("1") + *table->Find("2"));
 
 
+	table->Delete("4");
+
+
 
 	cout << *table;
 
