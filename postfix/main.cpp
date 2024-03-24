@@ -17,7 +17,7 @@ using namespace std;
 int vibor(int kol);
 
 int main() {
-	calculator c;
+	postfix::calculator c;
 	map<string, double> var;
 	string formula;
 	char buf;

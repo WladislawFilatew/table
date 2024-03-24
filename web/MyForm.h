@@ -15,6 +15,7 @@ namespace CppWinForm1 {
 	/// </summary>
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
+		bool flag = false;
 
 
 	public:
@@ -22,90 +23,45 @@ namespace CppWinForm1 {
 		{
 			InitializeComponent();
 			doSom();
+			flag = true;
 		}
 		
 		void doSom() {
+
+			
+			this->Width = 800;
+			this->Height = 400;
+
+			Table1->Width = this->Width - 50;
+			Table1->Height = this->Height - 150;
+
 			DataGridViewTextBoxColumn^ colomn0 = gcnew DataGridViewTextBoxColumn();
 			colomn0->Name = "key";
 			colomn0->HeaderText = "Êëþ÷";
-			colomn0->Width = 200;
+			colomn0->Width = (Table1->Width - 50) * 0.2;
 
 			DataGridViewTextBoxColumn^ colomn1 = gcnew DataGridViewTextBoxColumn();
 			colomn1->Name = "polinom";
 			colomn1->HeaderText = "Ïîëèíîì";
-			colomn1->Width = 649;
+			colomn1->Width = (Table1->Width - 50) * 0.8;
 
 			Table1->Columns->AddRange(colomn0, colomn1);
+
+			int heigh = Table1->ColumnHeadersHeight;
+
 			///
-			DataGridViewCell^ key0 = gcnew DataGridViewTextBoxCell();
-			DataGridViewCell^ polinom0 = gcnew DataGridViewTextBoxCell();
+			for (int i = 0; i <(int)(Table1->Height / heigh) - 2; i++) {
+				DataGridViewCell^ key0 = gcnew DataGridViewTextBoxCell();
+				DataGridViewCell^ polinom0 = gcnew DataGridViewTextBoxCell();
 
-			key0->Value = "";
-			polinom0->Value = "";
-		
-			DataGridViewRow^ row0 = gcnew DataGridViewRow();
-			row0->Cells->AddRange(key0, polinom0);
-			Table1->Rows->AddRange(row0);
-			///
-			DataGridViewCell^ key1 = gcnew DataGridViewTextBoxCell();
-			DataGridViewCell^ polinom1 = gcnew DataGridViewTextBoxCell();
+				key0->Value = "";
+				polinom0->Value = "";
 
-			key1->Value = "";
-			polinom1->Value = "";
+				DataGridViewRow^ row0 = gcnew DataGridViewRow();
+				row0->Cells->AddRange(key0, polinom0);
+				Table1->Rows->AddRange(row0);
+			}
 
-			DataGridViewRow^ row1 = gcnew DataGridViewRow();
-			row1->Cells->AddRange(key1, polinom1);
-			Table1->Rows->AddRange(row1);
-			///
-			DataGridViewCell^ key2 = gcnew DataGridViewTextBoxCell();
-			DataGridViewCell^ polinom2 = gcnew DataGridViewTextBoxCell();
-
-			key2->Value = "";
-			polinom2->Value = "";
-
-			DataGridViewRow^ row2 = gcnew DataGridViewRow();
-			row2->Cells->AddRange(key2, polinom2);
-			Table1->Rows->AddRange(row2);
-			///
-			DataGridViewCell^ key3 = gcnew DataGridViewTextBoxCell();
-			DataGridViewCell^ polinom3 = gcnew DataGridViewTextBoxCell();
-
-			key3->Value = "";
-			polinom3->Value = "";
-
-			DataGridViewRow^ row3 = gcnew DataGridViewRow();
-			row3->Cells->AddRange(key3, polinom3);
-			Table1->Rows->AddRange(row3);
-			///
-			DataGridViewCell^ key4 = gcnew DataGridViewTextBoxCell();
-			DataGridViewCell^ polinom4 = gcnew DataGridViewTextBoxCell();
-
-			key4->Value = "";
-			polinom4->Value = "";
-
-			DataGridViewRow^ row4 = gcnew DataGridViewRow();
-			row4->Cells->AddRange(key4, polinom4);
-			Table1->Rows->AddRange(row4);
-			///
-			DataGridViewCell^ key5 = gcnew DataGridViewTextBoxCell();
-			DataGridViewCell^ polinom5 = gcnew DataGridViewTextBoxCell();
-
-			key5->Value = "";
-			polinom5->Value = "";
-
-			DataGridViewRow^ row5 = gcnew DataGridViewRow();
-			row5->Cells->AddRange(key5, polinom5);
-			Table1->Rows->AddRange(row5);
-			///
-			DataGridViewCell^ key6 = gcnew DataGridViewTextBoxCell();
-			DataGridViewCell^ polinom6 = gcnew DataGridViewTextBoxCell();
-
-			key6->Value = "";
-			polinom6->Value = "";
-
-			DataGridViewRow^ row6 = gcnew DataGridViewRow();
-			row6->Cells->AddRange(key6, polinom6);
-			Table1->Rows->AddRange(row6);
 		}
 
 
@@ -210,14 +166,14 @@ namespace CppWinForm1 {
 			// 
 			// button1
 			// 
+			this->button1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->button1->BackColor = System::Drawing::Color::LimeGreen;
 			this->button1->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->ForeColor = System::Drawing::Color::Black;
-			this->button1->Location = System::Drawing::Point(14, 324);
-			this->button1->Margin = System::Windows::Forms::Padding(2);
+			this->button1->Location = System::Drawing::Point(33, 579);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(159, 52);
+			this->button1->Size = System::Drawing::Size(238, 81);
 			this->button1->TabIndex = 0;
 			this->button1->Text = L"Ëèíåéíàÿ íà ìàññèâå";
 			this->button1->UseVisualStyleBackColor = false;
@@ -225,6 +181,7 @@ namespace CppWinForm1 {
 			// 
 			// menuStrip2
 			// 
+			this->menuStrip2->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip2->ImageScalingSize = System::Drawing::Size(20, 20);
 			this->menuStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem,
@@ -232,7 +189,8 @@ namespace CppWinForm1 {
 			});
 			this->menuStrip2->Location = System::Drawing::Point(0, 0);
 			this->menuStrip2->Name = L"menuStrip2";
-			this->menuStrip2->Size = System::Drawing::Size(1229, 28);
+			this->menuStrip2->Padding = System::Windows::Forms::Padding(9, 3, 0, 3);
+			this->menuStrip2->Size = System::Drawing::Size(1581, 42);
 			this->menuStrip2->TabIndex = 6;
 			this->menuStrip2->Text = L"menuStrip2";
 			// 
@@ -243,32 +201,32 @@ namespace CppWinForm1 {
 					this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem, this->ïðîèçâîäíàÿToolStripMenuItem, this->èíòåãðàëToolStripMenuItem
 			});
 			this->îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Name = L"îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem";
-			this->îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Size = System::Drawing::Size(311, 24);
+			this->îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Size = System::Drawing::Size(487, 36);
 			this->îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Text = L"Îïåðàöèè íàä îòäåëüíûìè ïîëèíîìàìè";
 			this->îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îïåðàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem_Click);
 			// 
 			// âû÷èñëåíèåÂÒî÷êåToolStripMenuItem
 			// 
 			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Name = L"âû÷èñëåíèåÂÒî÷êåToolStripMenuItem";
-			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Size = System::Drawing::Size(268, 26);
+			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Size = System::Drawing::Size(427, 44);
 			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Text = L"Âû÷èñëåíèå â òî÷êå";
 			// 
 			// óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem
 			// 
 			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem->Name = L"óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem";
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem->Size = System::Drawing::Size(268, 26);
+			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem->Size = System::Drawing::Size(427, 44);
 			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem->Text = L"Óìíîæåíèå íà êîíñòàíòó";
 			// 
 			// ïðîèçâîäíàÿToolStripMenuItem
 			// 
 			this->ïðîèçâîäíàÿToolStripMenuItem->Name = L"ïðîèçâîäíàÿToolStripMenuItem";
-			this->ïðîèçâîäíàÿToolStripMenuItem->Size = System::Drawing::Size(268, 26);
+			this->ïðîèçâîäíàÿToolStripMenuItem->Size = System::Drawing::Size(427, 44);
 			this->ïðîèçâîäíàÿToolStripMenuItem->Text = L"Ïðîèçâîäíàÿ";
 			// 
 			// èíòåãðàëToolStripMenuItem
 			// 
 			this->èíòåãðàëToolStripMenuItem->Name = L"èíòåãðàëToolStripMenuItem";
-			this->èíòåãðàëToolStripMenuItem->Size = System::Drawing::Size(268, 26);
+			this->èíòåãðàëToolStripMenuItem->Size = System::Drawing::Size(427, 44);
 			this->èíòåãðàëToolStripMenuItem->Text = L"Èíòåãðàë";
 			// 
 			// îïåðàöèèÂÂûðàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem
@@ -279,43 +237,43 @@ namespace CppWinForm1 {
 					this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem
 			});
 			this->îïåðàöèèÂÂûðàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->Name = L"îïåðàöèèÂÂûðàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem";
-			this->îïåðàöèèÂÂûðàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(304, 24);
+			this->îïåðàöèèÂÂûðàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(478, 36);
 			this->îïåðàöèèÂÂûðàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->Text = L"Îïåðàöèè â âûðàæåíèÿõ èç ïîëèíîìîâ";
 			// 
 			// ñëîæåíèåToolStripMenuItem
 			// 
 			this->ñëîæåíèåToolStripMenuItem->Name = L"ñëîæåíèåToolStripMenuItem";
-			this->ñëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(351, 26);
+			this->ñëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(556, 44);
 			this->ñëîæåíèåToolStripMenuItem->Text = L"Ñëîæåíèå";
 			// 
 			// âû÷èòàíèåToolStripMenuItem
 			// 
 			this->âû÷èòàíèåToolStripMenuItem->Name = L"âû÷èòàíèåToolStripMenuItem";
-			this->âû÷èòàíèåToolStripMenuItem->Size = System::Drawing::Size(351, 26);
+			this->âû÷èòàíèåToolStripMenuItem->Size = System::Drawing::Size(556, 44);
 			this->âû÷èòàíèåToolStripMenuItem->Text = L"Âû÷èòàíèå";
 			// 
 			// óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1
 			// 
 			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1->Name = L"óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1";
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1->Size = System::Drawing::Size(351, 26);
+			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1->Size = System::Drawing::Size(556, 44);
 			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1->Text = L"Óìíîæåíèå íà êîíñòàíòó";
 			// 
 			// óìíîæåíèåÏîëèíîìîâToolStripMenuItem
 			// 
 			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Name = L"óìíîæåíèåÏîëèíîìîâToolStripMenuItem";
-			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(351, 26);
+			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(556, 44);
 			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Text = L"Óìíîæåíèå ïîëèíîìîâ";
 			// 
 			// äåëåíèåÏîëèíîìîâToolStripMenuItem
 			// 
 			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Name = L"äåëåíèåÏîëèíîìîâToolStripMenuItem";
-			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(351, 26);
+			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(556, 44);
 			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Text = L"Äåëåíèå ïîëèíîìîâ";
 			// 
 			// èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem
 			// 
 			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem->Name = L"èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem";
-			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem->Size = System::Drawing::Size(351, 26);
+			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem->Size = System::Drawing::Size(556, 44);
 			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem->Text = L"Èñïîëüçîâàíèå ïîñòôèêñíîé ôîðìû";
 			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::èñïîëüçîâàíèåÏîñòôèêñíîãéÔîðìûToolStripMenuItem_Click);
 			// 
@@ -326,95 +284,95 @@ namespace CppWinForm1 {
 					this->óäàëåíèåÏîëèíîìàToolStripMenuItem, this->ïîèñêToolStripMenuItem, this->âûâîäÀêòèâíîéÒàáëèöûÍàÝêðàíToolStripMenuItem
 			});
 			this->îïåðàöèèÍàäÒàáëèöàìèToolStripMenuItem->Name = L"îïåðàöèèÍàäÒàáëèöàìèToolStripMenuItem";
-			this->îïåðàöèèÍàäÒàáëèöàìèToolStripMenuItem->Size = System::Drawing::Size(205, 24);
+			this->îïåðàöèèÍàäÒàáëèöàìèToolStripMenuItem->Size = System::Drawing::Size(320, 36);
 			this->îïåðàöèèÍàäÒàáëèöàìèToolStripMenuItem->Text = L"Îïåðàöèè íàä òàáëèöàìè";
 			// 
 			// äîáàâëåíèåÏîëèíîìàToolStripMenuItem
 			// 
 			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem->Name = L"äîáàâëåíèåÏîëèíîìàToolStripMenuItem";
-			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem->Size = System::Drawing::Size(335, 26);
+			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem->Size = System::Drawing::Size(532, 44);
 			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem->Text = L"Äîáàâëåíèå ïîëèíîìà";
 			// 
 			// óäàëåíèåÏîëèíîìàToolStripMenuItem
 			// 
 			this->óäàëåíèåÏîëèíîìàToolStripMenuItem->Name = L"óäàëåíèåÏîëèíîìàToolStripMenuItem";
-			this->óäàëåíèåÏîëèíîìàToolStripMenuItem->Size = System::Drawing::Size(335, 26);
+			this->óäàëåíèåÏîëèíîìàToolStripMenuItem->Size = System::Drawing::Size(532, 44);
 			this->óäàëåíèåÏîëèíîìàToolStripMenuItem->Text = L"Óäàëåíèå ïîëèíîìà";
 			// 
 			// ïîèñêToolStripMenuItem
 			// 
 			this->ïîèñêToolStripMenuItem->Name = L"ïîèñêToolStripMenuItem";
-			this->ïîèñêToolStripMenuItem->Size = System::Drawing::Size(335, 26);
+			this->ïîèñêToolStripMenuItem->Size = System::Drawing::Size(532, 44);
 			this->ïîèñêToolStripMenuItem->Text = L"Ïîèñê";
 			// 
 			// âûâîäÀêòèâíîéÒàáëèöûÍàÝêðàíToolStripMenuItem
 			// 
 			this->âûâîäÀêòèâíîéÒàáëèöûÍàÝêðàíToolStripMenuItem->Name = L"âûâîäÀêòèâíîéÒàáëèöûÍàÝêðàíToolStripMenuItem";
-			this->âûâîäÀêòèâíîéÒàáëèöûÍàÝêðàíToolStripMenuItem->Size = System::Drawing::Size(335, 26);
+			this->âûâîäÀêòèâíîéÒàáëèöûÍàÝêðàíToolStripMenuItem->Size = System::Drawing::Size(532, 44);
 			this->âûâîäÀêòèâíîéÒàáëèöûÍàÝêðàíToolStripMenuItem->Text = L"Âûâîä àêòèâíîé òàáëèöû íà ýêðàí";
 			// 
 			// button2
 			// 
+			this->button2->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->button2->BackColor = System::Drawing::Color::LimeGreen;
 			this->button2->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button2->Location = System::Drawing::Point(177, 324);
-			this->button2->Margin = System::Windows::Forms::Padding(2);
+			this->button2->Location = System::Drawing::Point(278, 579);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(159, 52);
+			this->button2->Size = System::Drawing::Size(238, 81);
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Ëèíåéíàÿ íà ñïèñêå";
 			this->button2->UseVisualStyleBackColor = false;
 			// 
 			// button3
 			// 
+			this->button3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->button3->BackColor = System::Drawing::Color::LimeGreen;
 			this->button3->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button3->Location = System::Drawing::Point(340, 324);
-			this->button3->Margin = System::Windows::Forms::Padding(2);
+			this->button3->Location = System::Drawing::Point(522, 579);
 			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(159, 52);
+			this->button3->Size = System::Drawing::Size(238, 81);
 			this->button3->TabIndex = 8;
 			this->button3->Text = L"Óïîðÿäî÷åííàÿ íà ìàññèâå";
 			this->button3->UseVisualStyleBackColor = false;
 			// 
 			// button4
 			// 
+			this->button4->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->button4->BackColor = System::Drawing::Color::LimeGreen;
 			this->button4->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Location = System::Drawing::Point(503, 324);
-			this->button4->Margin = System::Windows::Forms::Padding(2);
+			this->button4->Location = System::Drawing::Point(766, 579);
 			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(159, 52);
+			this->button4->Size = System::Drawing::Size(238, 81);
 			this->button4->TabIndex = 9;
 			this->button4->Text = L"Äåðåâî";
 			this->button4->UseVisualStyleBackColor = false;
 			// 
 			// button5
 			// 
+			this->button5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->button5->BackColor = System::Drawing::Color::LimeGreen;
 			this->button5->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button5->Location = System::Drawing::Point(666, 324);
-			this->button5->Margin = System::Windows::Forms::Padding(2);
+			this->button5->Location = System::Drawing::Point(1011, 579);
 			this->button5->Name = L"button5";
-			this->button5->Size = System::Drawing::Size(159, 52);
+			this->button5->Size = System::Drawing::Size(238, 81);
 			this->button5->TabIndex = 10;
 			this->button5->Text = L"Õýø - 1";
 			this->button5->UseVisualStyleBackColor = false;
 			// 
 			// button6
 			// 
+			this->button6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((System::Windows::Forms::AnchorStyles::Bottom | System::Windows::Forms::AnchorStyles::Left));
 			this->button6->BackColor = System::Drawing::Color::LimeGreen;
 			this->button6->FlatAppearance->BorderColor = System::Drawing::Color::Black;
 			this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button6->ForeColor = System::Drawing::Color::Black;
-			this->button6->Location = System::Drawing::Point(829, 324);
-			this->button6->Margin = System::Windows::Forms::Padding(2);
+			this->button6->Location = System::Drawing::Point(1256, 579);
 			this->button6->Name = L"button6";
-			this->button6->Size = System::Drawing::Size(159, 52);
+			this->button6->Size = System::Drawing::Size(238, 81);
 			this->button6->TabIndex = 11;
 			this->button6->Text = L"Õýø - 2";
 			this->button6->UseVisualStyleBackColor = false;
@@ -428,20 +386,21 @@ namespace CppWinForm1 {
 			this->Table1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->Table1->GridColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(192)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(192)));
-			this->Table1->Location = System::Drawing::Point(12, 42);
+			this->Table1->Location = System::Drawing::Point(32, 59);
+			this->Table1->Margin = System::Windows::Forms::Padding(40, 50, 40, 50);
 			this->Table1->Name = L"Table1";
 			this->Table1->RowHeadersWidth = 51;
 			this->Table1->RowTemplate->Height = 24;
-			this->Table1->Size = System::Drawing::Size(1205, 268);
+			this->Table1->Size = System::Drawing::Size(935, 446);
 			this->Table1->TabIndex = 5;
 			this->Table1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
 			// 
 			// MyForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(12, 25);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::ForestGreen;
-			this->ClientSize = System::Drawing::Size(1229, 398);
+			this->ClientSize = System::Drawing::Size(1581, 700);
 			this->Controls->Add(this->button6);
 			this->Controls->Add(this->button5);
 			this->Controls->Add(this->button4);
@@ -450,9 +409,13 @@ namespace CppWinForm1 {
 			this->Controls->Add(this->Table1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->menuStrip2);
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->MinimumSize = System::Drawing::Size(800, 400);
 			this->Name = L"MyForm";
 			this->Text = L"Òàáëèöà";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->ResizeEnd += gcnew System::EventHandler(this, &MyForm::MyForm_ResizeEnd);
+			this->SizeChanged += gcnew System::EventHandler(this, &MyForm::MyForm_SizeChanged);
 			this->menuStrip2->ResumeLayout(false);
 			this->menuStrip2->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataSet1))->EndInit();
@@ -477,5 +440,39 @@ private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) 
 }
 private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 }
+private: System::Void MyForm_ResizeEnd(System::Object^ sender, System::EventArgs^ e) {
+	
+}
+
+	private: System::Void MyForm_SizeChanged(System::Object^ sender, System::EventArgs^ e) {
+		if (flag) {
+
+			if (this->Width < 800)
+				this->Width = 800;
+			if (this->Height < 400)
+				this->Height = 400;
+
+
+
+			Table1->Width = this->Width - 50;
+			Table1->Height = this->Height - 150;
+			Table1->Columns["key"]->Width = (Table1->Width - 50) * 0.2;
+			Table1->Columns["polinom"]->Width = (Table1->Width - 50) * 0.8;
+
+			int heigh = Table1->ColumnHeadersHeight;
+
+			for (int i = Table1->RowCount; i < (int)(Table1->Height / heigh) - 2; i++) {
+				DataGridViewCell^ key0 = gcnew DataGridViewTextBoxCell();
+				DataGridViewCell^ polinom0 = gcnew DataGridViewTextBoxCell();
+
+				key0->Value = "";
+				polinom0->Value = "";
+
+				DataGridViewRow^ row0 = gcnew DataGridViewRow();
+				row0->Cells->AddRange(key0, polinom0);
+				Table1->Rows->AddRange(row0);
+			}
+		}
+	}
 };
 }

@@ -24,7 +24,7 @@ events:
       The output was:
       0
       MSBuild version 17.4.1+9a89d02ff for .NET Framework
-      Сборка начата 24.03.2024 14:56:22.
+      Сборка начата 24.03.2024 15:34:17.
       Проект "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\3.27.6\\CompilerIdC\\CompilerIdC.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
         Создание каталога "Debug\\".
@@ -50,7 +50,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.99
+      Прошло времени 00:00:01.02
       
       
       Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -76,7 +76,7 @@ events:
       The output was:
       0
       MSBuild version 17.4.1+9a89d02ff for .NET Framework
-      Сборка начата 24.03.2024 14:56:23.
+      Сборка начата 24.03.2024 15:34:18.
       Проект "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\3.27.6\\CompilerIdCXX\\CompilerIdCXX.vcxproj" в узле 1 (целевые объекты по умолчанию).
       PrepareForBuild:
         Создание каталога "Debug\\".
@@ -102,7 +102,7 @@ events:
           Предупреждений: 0
           Ошибок: 0
       
-      Прошло времени 00:00:00.75
+      Прошло времени 00:00:00.81
       
       
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -121,45 +121,45 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-xri4ii"
-      binary: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-xri4ii"
+      source: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-aqg9y5"
+      binary: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-aqg9y5"
     cmakeVariables:
       CMAKE_C_FLAGS: "/DWIN32 /D_WINDOWS /W3"
     buildResult:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-xri4ii'
+        Change Dir: 'C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-aqg9y5'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_16a00.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_76168.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.4.1+9a89d02ff for .NET Framework
-        Сборка начата 24.03.2024 14:56:25.
-        Проект "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xri4ii\\cmTC_16a00.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Сборка начата 24.03.2024 15:34:19.
+        Проект "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aqg9y5\\cmTC_76168.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_16a00.dir\\Debug\\".
-          Создание каталога "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xri4ii\\Debug\\".
-          Создание каталога "cmTC_16a00.dir\\Debug\\cmTC_16a00.tlog\\".
+          Создание каталога "cmTC_76168.dir\\Debug\\".
+          Создание каталога "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aqg9y5\\Debug\\".
+          Создание каталога "cmTC_76168.dir\\Debug\\cmTC_76168.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_16a00.dir\\Debug\\cmTC_16a00.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Создание "cmTC_76168.dir\\Debug\\cmTC_76168.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_16a00.dir\\Debug\\\\" /Fd"cmTC_16a00.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_76168.dir\\Debug\\\\" /Fd"cmTC_76168.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.34.31942 для x64
           CMakeCCompilerABI.c
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_16a00.dir\\Debug\\\\" /Fd"cmTC_16a00.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_76168.dir\\Debug\\\\" /Fd"cmTC_76168.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TC /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCCompilerABI.c"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xri4ii\\Debug\\cmTC_16a00.exe" /INCREMENTAL /ILK:"cmTC_16a00.dir\\Debug\\cmTC_16a00.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-xri4ii/Debug/cmTC_16a00.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-xri4ii/Debug/cmTC_16a00.lib" /MACHINE:X64  /machine:x64 cmTC_16a00.dir\\Debug\\CMakeCCompilerABI.obj
-          cmTC_16a00.vcxproj -> C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xri4ii\\Debug\\cmTC_16a00.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aqg9y5\\Debug\\cmTC_76168.exe" /INCREMENTAL /ILK:"cmTC_76168.dir\\Debug\\cmTC_76168.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-aqg9y5/Debug/cmTC_76168.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-aqg9y5/Debug/cmTC_76168.lib" /MACHINE:X64  /machine:x64 cmTC_76168.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_76168.vcxproj -> C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aqg9y5\\Debug\\cmTC_76168.exe
         FinalizeBuildStatus:
-          Файл "cmTC_16a00.dir\\Debug\\cmTC_16a00.tlog\\unsuccessfulbuild" удаляется.
-          Обращение к "cmTC_16a00.dir\\Debug\\cmTC_16a00.tlog\\cmTC_16a00.lastbuildstate".
-        Сборка проекта "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-xri4ii\\cmTC_16a00.vcxproj" завершена (целевые объекты по умолчанию).
+          Файл "cmTC_76168.dir\\Debug\\cmTC_76168.tlog\\unsuccessfulbuild" удаляется.
+          Обращение к "cmTC_76168.dir\\Debug\\cmTC_76168.tlog\\cmTC_76168.lastbuildstate".
+        Сборка проекта "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-aqg9y5\\cmTC_76168.vcxproj" завершена (целевые объекты по умолчанию).
         
         Сборка успешно завершена.
             Предупреждений: 0
             Ошибок: 0
         
-        Прошло времени 00:00:00.72
+        Прошло времени 00:00:00.78
         
       exitCode: 0
   -
@@ -171,45 +171,45 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-3sxcy0"
-      binary: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-3sxcy0"
+      source: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-yhpxbp"
+      binary: "C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-yhpxbp"
     cmakeVariables:
       CMAKE_CXX_FLAGS: "/DWIN32 /D_WINDOWS /W3 /GR /EHsc"
     buildResult:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-3sxcy0'
+        Change Dir: 'C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-yhpxbp'
         
-        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_60d63.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        Run Build Command(s): "C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_6acce.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
         MSBuild version 17.4.1+9a89d02ff for .NET Framework
-        Сборка начата 24.03.2024 14:56:26.
-        Проект "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3sxcy0\\cmTC_60d63.vcxproj" в узле 1 (целевые объекты по умолчанию).
+        Сборка начата 24.03.2024 15:34:21.
+        Проект "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yhpxbp\\cmTC_6acce.vcxproj" в узле 1 (целевые объекты по умолчанию).
         PrepareForBuild:
-          Создание каталога "cmTC_60d63.dir\\Debug\\".
-          Создание каталога "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3sxcy0\\Debug\\".
-          Создание каталога "cmTC_60d63.dir\\Debug\\cmTC_60d63.tlog\\".
+          Создание каталога "cmTC_6acce.dir\\Debug\\".
+          Создание каталога "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yhpxbp\\Debug\\".
+          Создание каталога "cmTC_6acce.dir\\Debug\\cmTC_6acce.tlog\\".
         InitializeBuildStatus:
-          Создание "cmTC_60d63.dir\\Debug\\cmTC_60d63.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
+          Создание "cmTC_6acce.dir\\Debug\\cmTC_6acce.tlog\\unsuccessfulbuild", так как было задано "AlwaysCreate".
         ClCompile:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_60d63.dir\\Debug\\\\" /Fd"cmTC_60d63.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\CL.exe /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6acce.dir\\Debug\\\\" /Fd"cmTC_6acce.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
           Оптимизирующий компилятор Microsoft (R) C/C++ версии 19.34.31942 для x64
           CMakeCXXCompilerABI.cpp
           (C) Корпорация Майкрософт (Microsoft Corporation).  Все права защищены.
-          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_60d63.dir\\Debug\\\\" /Fd"cmTC_60d63.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
+          cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\\"Debug\\"" /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6acce.dir\\Debug\\\\" /Fd"cmTC_6acce.dir\\Debug\\vc143.pdb" /external:W3 /Gd /TP /errorReport:queue "C:\\Program Files\\CMake\\share\\cmake-3.27\\Modules\\CMakeCXXCompilerABI.cpp"
         Link:
-          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3sxcy0\\Debug\\cmTC_60d63.exe" /INCREMENTAL /ILK:"cmTC_60d63.dir\\Debug\\cmTC_60d63.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-3sxcy0/Debug/cmTC_60d63.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-3sxcy0/Debug/cmTC_60d63.lib" /MACHINE:X64  /machine:x64 cmTC_60d63.dir\\Debug\\CMakeCXXCompilerABI.obj
-          cmTC_60d63.vcxproj -> C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3sxcy0\\Debug\\cmTC_60d63.exe
+          C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.34.31933\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yhpxbp\\Debug\\cmTC_6acce.exe" /INCREMENTAL /ILK:"cmTC_6acce.dir\\Debug\\cmTC_6acce.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-yhpxbp/Debug/cmTC_6acce.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/fill2/source/repos/table/build/CMakeFiles/CMakeScratch/TryCompile-yhpxbp/Debug/cmTC_6acce.lib" /MACHINE:X64  /machine:x64 cmTC_6acce.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_6acce.vcxproj -> C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yhpxbp\\Debug\\cmTC_6acce.exe
         FinalizeBuildStatus:
-          Файл "cmTC_60d63.dir\\Debug\\cmTC_60d63.tlog\\unsuccessfulbuild" удаляется.
-          Обращение к "cmTC_60d63.dir\\Debug\\cmTC_60d63.tlog\\cmTC_60d63.lastbuildstate".
-        Сборка проекта "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-3sxcy0\\cmTC_60d63.vcxproj" завершена (целевые объекты по умолчанию).
+          Файл "cmTC_6acce.dir\\Debug\\cmTC_6acce.tlog\\unsuccessfulbuild" удаляется.
+          Обращение к "cmTC_6acce.dir\\Debug\\cmTC_6acce.tlog\\cmTC_6acce.lastbuildstate".
+        Сборка проекта "C:\\Users\\fill2\\source\\repos\\table\\build\\CMakeFiles\\CMakeScratch\\TryCompile-yhpxbp\\cmTC_6acce.vcxproj" завершена (целевые объекты по умолчанию).
         
         Сборка успешно завершена.
             Предупреждений: 0
             Ошибок: 0
         
-        Прошло времени 00:00:00.75
+        Прошло времени 00:00:00.88
         
       exitCode: 0
 ...

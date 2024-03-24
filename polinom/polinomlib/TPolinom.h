@@ -131,6 +131,8 @@ public:
 	*/
 	TPolinom operator/(TPolinom& other);
 
+	string ToPostfix();
+
 };
 
 void TPolinom::setPolinom(string s) {
@@ -267,7 +269,7 @@ string TPolinom::ToString()
 	List<TMonom>::iterator it;
 	it = list.begin();
 	while (it != list.end()) {
-		if ((*it).index == 0) {
+		if ((*it).index == 0 && (int)(*it).coef ==  1) {
 			result += to_string(abs((int)(*it).coef));
 		}
 		if (abs((*it).coef) != 1){
@@ -354,6 +356,48 @@ inline TPolinom TPolinom::operator/(TPolinom& other)
 
 	*this = *this / other.list[0];
 	return *this;
+}
+
+inline string TPolinom::ToPostfix()
+{
+	string result;
+	List<TMonom>::iterator it;
+	it = list.begin();
+	while (it != list.end()) {
+		if ((*it).index == 0 && (int)(*it).coef == 1) {
+			result += to_string(abs((int)(*it).coef));
+		}
+		if (abs((*it).coef) != 1) {
+			result += std::to_string(abs((int)(*it).coef)) + "*";
+		}
+		if ((*it).index / 100 != 0) {
+			result += "x";
+			if ((*it).index / 100 != 1)
+				result += "^" + std::to_string((*it).index / 100);
+			result += "*";
+		}
+		if ((*it).index % 100 / 10 != 0) {
+			result += "y";
+			if ((*it).index % 100 / 10 != 1)
+				result += "^" + std::to_string((*it).index % 100 / 10);
+			result += "*";
+		}
+		if ((*it).index % 10 != 0) {
+			result += "z";
+			if ((*it).index % 10 != 1)
+				result += "^" + std::to_string((*it).index % 10);
+		}
+		if (result[result.size() - 1] == '*')
+			result.pop_back();
+		it++;
+		if (it != list.end()) {
+			if ((*it).coef < 0)
+				result += " - ";
+			else
+				result += " + ";
+		}
+	}
+	return result;
 }
 
 
