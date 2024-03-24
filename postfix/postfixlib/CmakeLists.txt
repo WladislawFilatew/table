@@ -7,4 +7,4 @@ Set(name ${PROJECT_NAME}lib)
 file(GLOB CPP "*.cpp")
 file(GLOB H "*.h")
 
-add_library(${name} STATIC ${CPP} ${H})
+add_library(${name} STATIC ${H} ${CPP})

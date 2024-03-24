@@ -148,10 +148,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\fill2\source\repos\table\postfix\postfixlib\func.cpp" />
-    <ClCompile Include="C:\Users\fill2\source\repos\table\postfix\postfixlib\postfix.cpp" />
     <ClInclude Include="C:\Users\fill2\source\repos\table\postfix\postfixlib\func.h" />
     <ClInclude Include="C:\Users\fill2\source\repos\table\postfix\postfixlib\postfix.h" />
+    <ClCompile Include="C:\Users\fill2\source\repos\table\postfix\postfixlib\func.cpp" />
+    <ClCompile Include="C:\Users\fill2\source\repos\table\postfix\postfixlib\postfix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\fill2\source\repos\table\build\ZERO_CHECK.vcxproj">
