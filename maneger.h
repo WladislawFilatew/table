@@ -5,6 +5,8 @@
 #include "table.h"
 #include "LinearOnArray.h"
 #include "LinearOnList.h"
+#include "OrderedOnArray.h"
+#include "Tree.h"
 
 #include <map>
 using namespace std;
@@ -16,14 +18,65 @@ using namespace std;
 
 class maneger {
 private:
-	LinerOnArray<string, TPolinom> linerOnArray;
-	LinerOnList<string, TPolinom> lineOnList;
-	
-	table<string, TPolinom>* aktiv;
+	map<string, table<string, TPolinom>*> temp;
+	table<string, TPolinom>* tec;
+
 public:
-
-	bool add(string key, TPolinom value);
-	bool erase(string key);
-	TPolinom find(string key); 
-
+	maneger() {
+		temp.emplace("LinerOnArray", new LinerOnArray<string, TPolinom>);
+		temp.emplace("LinearOnList", new LinerOnList<string, TPolinom>);
+		temp.emplace("OrderedOnArray", new OrderedOnArray<string, TPolinom>);
+		temp.emplace("Tree", new Tree<string, TPolinom>);
+		tec = temp["LinerOnArray"];
+	}
+	bool Insert(string key, TPolinom value);
+	bool Delete(string key);
+	TPolinom* Find(string key); 
+	bool ChooseTable(string name);
+	friend ostream& operator<<(ostream& os, maneger& tab)
+	{
+		cout << (*tab.tec);
+		return os;
+	}
 };
+
+bool maneger::Insert(string key, TPolinom value) {
+	auto it = temp.begin();
+	bool flag = true;
+	while (flag && it != temp.end()) {
+		flag = (it->second->Insert(key, value) && flag);
+		it++;
+	}
+	return flag;
+}
+
+inline bool maneger::Delete(string key)
+{
+	auto it = temp.begin();
+	bool flag = true;
+	while (flag && it != temp.end()) {
+		flag = (it->second->Delete(key) && flag);
+		it++;
+	}
+	return flag;
+}
+
+inline TPolinom* maneger::Find(string key)
+{
+	return tec->Find(key);
+}
+
+inline bool maneger::ChooseTable(string name)
+{
+	auto it = temp.begin();
+	bool flag = false;
+	while (!flag && it != temp.end()) {
+		if (it->first == name) {
+			flag = true;
+			tec = it->second;
+		}
+		it++;
+	}
+	return flag;
+}
+

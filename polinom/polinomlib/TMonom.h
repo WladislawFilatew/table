@@ -123,6 +123,22 @@ struct TMonom
 	* Оператор умножения монома на моном
 	*/
 	TMonom& operator*(const TMonom& other);
+
+	/*!
+	* Производная монома
+	*/
+	TMonom derivative(char c);
+
+	/*!
+	* Интеграл монома
+	*/
+	TMonom Integral(char c);
+
+	/*!
+	* Оператор деления монома на моном
+	*/
+	TMonom operator/(TMonom& other);
+
 };
 
 
@@ -233,6 +249,53 @@ inline TMonom& TMonom::operator*(const TMonom& other)
 	TMonom temp;
 	temp.index = this->index + other.index;
 	temp.coef = this->coef * other.coef;
+	return temp;
+}
+
+inline TMonom TMonom::derivative(char c)
+{
+	TMonom temp = *this;
+	if ((c == 'X' || c == 'x') && temp.index >= 100) {
+		temp.index -= 100;
+	}
+	if ((c == 'Y' || c == 'y') && (temp.index % 100) >= 10) {
+		temp.index -= 10;
+	}
+	if (c == 'Z' || c == 'z' && (temp.index % 10) >= 1) {
+		temp.index -= 1;
+	}
+	return temp;
+}
+
+inline TMonom TMonom::Integral(char c)
+{
+	TMonom temp = *this;
+	if ((c == 'X' || c == 'x') && temp.index < 900) {
+		temp.index += 100;
+		temp.coef /= (temp.index / 100);
+	}
+	if ((c == 'Y' || c == 'y') && (temp.index % 100) < 90) {
+		temp.index += 10;
+		temp.coef /= ((temp.index % 100) / 10);
+	}
+	if (c == 'Z' || c == 'z' && (temp.index % 10) < 9) {
+		temp.index += 1;
+		temp.coef /= (temp.index % 10);
+	}
+	return temp;
+}
+
+inline TMonom TMonom::operator/(TMonom& other)
+{
+	if (this->index / 100 - other.index / 100 < 0)
+		throw exception("of range");
+	if ((this->index % 100) / 10 - (other.index % 100) / 10 < 0)
+		throw exception("of range");
+	if (this->index % 10 - other.index % 10 < 0)
+		throw exception("of range");
+	TMonom temp;
+	temp.index = this->index - other.index;
+	temp.coef = this->coef / other.coef;
 	return temp;
 }
 

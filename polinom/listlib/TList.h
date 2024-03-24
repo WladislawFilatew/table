@@ -292,15 +292,45 @@ inline void List<T>::insert(T value, List<T>::iterator it)
 template<class T>
 inline void List<T>::erase(List<T>::iterator it)
 {
-	Node<T>* del = it.getNode();
-	Node<T>* temp = del->pPrev;
+	if (it == head)
+		pop_front();
+	else if (it == tail)
+		pop_back();
+	else {
 
-	del->pNext->pPrev = temp;
-	temp->pNext = del->pNext;
+		Node<T>* del = it.getNode();
+		Node<T>* temp = del->pPrev;
 
-	delete del;
+		del->pNext->pPrev = temp;
+		temp->pNext = del->pNext;
+
+		delete del;
+	}
 	size--;
 }
+
+
+template<class T>
+inline void List<T>::erase(size_t index)
+{
+	if (index > size - 1)
+		throw exception("of range");
+	if (index == 0)
+		pop_front();
+	else if (index == size - 1)
+		pop_back();
+	else {
+		Node<T>* temp = getNode(index - 1);
+		Node<T>* del = temp->pNext;
+		del->pNext->pPrev = temp;
+		temp->pNext = del->pNext;
+
+		delete del;
+		size--;
+	}
+
+}
+
 
 template<class T>
 inline void List<T>::pop_back()
@@ -328,27 +358,6 @@ inline void List<T>::pop_front()
 	}
 	delete temp;
 	size--;
-}
-
-template<class T>
-inline void List<T>::erase(size_t index)
-{
-	if (index > size - 1)
-		throw exception("of range");
-	if (index == 0)
-		pop_front();
-	else if (index == size - 1)
-		pop_back();
-	else {
-		Node<T>* temp = getNode(index - 1);
-		Node<T>* del = temp->pNext;
-		del->pNext->pPrev = temp;
-		temp->pNext = del->pNext;
-
-		delete del;
-		size--;
-	}
-	
 }
 
 template<class T>

@@ -104,6 +104,33 @@ public:
 		return os;
 	}
 
+
+	/*!
+	* Производная полинома
+	*/
+	TPolinom derivative(char c);
+
+	/*!
+	* Интеграл полинома
+	*/
+	TPolinom Integral(char c);
+
+
+	/*!
+	* Оператор деления на моном
+	*/
+	TPolinom operator/(TMonom monom);
+
+	/*!
+	* Оператор деление на число
+	*/
+	TPolinom operator/(double coef);
+
+	/*!
+	* Оператор деления полиномов
+	*/
+	TPolinom operator/(TPolinom& other);
+
 };
 
 void TPolinom::setPolinom(string s) {
@@ -163,6 +190,8 @@ void TPolinom::operator+(TMonom m)
 		}
 		it++;
 	}
+	if (!flag && (*it).coef == 0)
+		list.erase(it);
 	if (flag && m.coef != 0)
 		list.insert(m, it);
 }
@@ -238,6 +267,9 @@ string TPolinom::ToString()
 	List<TMonom>::iterator it;
 	it = list.begin();
 	while (it != list.end()) {
+		if ((*it).index == 0) {
+			result += to_string(abs((int)(*it).coef));
+		}
 		if (abs((*it).coef) != 1){
 			result +=  std::to_string(abs((int)(*it).coef));
 		}
@@ -265,6 +297,63 @@ string TPolinom::ToString()
 		}
 	}
 	return result;
+}
+
+inline TPolinom TPolinom::derivative(char c)
+{
+	TPolinom temp = *this;
+	List<TMonom>::iterator it;
+	it = temp.list.begin();
+	while (it != temp.list.end()) {
+		(*it) = (*it).derivative(c);
+		it++;
+	}
+
+	return temp;
+}
+
+inline TPolinom TPolinom::Integral(char c)
+{
+	TPolinom temp = *this;
+	List<TMonom>::iterator it;
+	it = temp.list.begin();
+	while (it != temp.list.end()) {
+		(*it) = (*it).Integral(c);
+		it++;
+	}
+
+	return temp;
+}
+
+inline TPolinom TPolinom::operator/(TMonom monom)
+{
+	List<TMonom>::iterator it;
+	it = list.begin();
+	while (it != list.end()) {
+		(*it) = (*it) / monom;
+		it++;
+	}
+	return *this;
+}
+
+inline TPolinom TPolinom::operator/(double coef)
+{
+	List<TMonom>::iterator it;
+	it = list.begin();
+	while (it != list.end()) {
+		(*it).coef /= coef;
+		it++;
+	}
+	return *this;
+}
+
+inline TPolinom TPolinom::operator/(TPolinom& other)
+{
+	if (other.list.Size() > 1)
+		throw exception("eror");
+
+	*this = *this / other.list[0];
+	return *this;
 }
 
 

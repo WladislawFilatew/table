@@ -207,3 +207,5 @@ public:
 	void SetVar(map<string,double> var);
 	
 };
+
+

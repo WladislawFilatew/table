@@ -14,11 +14,13 @@ include_directories(${CMAKE_SOURCE_DIR}/test)
 include_directories(${CMAKE_SOURCE_DIR}/stack/stacklib)
 
 
-add_executable(${PROJECT_NAME} ${CPP})
+
 
 
 add_subdirectory(postfixlib)	
 add_subdirectory(test)
 add_subdirectory(stack)
+
+add_executable(${PROJECT_NAME} ${CPP})
 
 target_link_libraries(${PROJECT_NAME} ${postfixlib})	

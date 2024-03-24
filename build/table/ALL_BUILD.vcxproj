@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\fill2\source\repos\table\gtest;C:\Users\fill2\source\repos\table\polinom\listlib;C:\Users\fill2\source\repos\table\polinom\polinomlib;C:\Users\fill2\source\repos\table\postfix\lib;C:\Users\fill2\source\repos\table\table;C:\Users\fill2\source\repos\table\table\Tree\lib;C:\Users\fill2\source\repos\table\table\HashChain\lib;C:\Users\fill2\source\repos\table\table\HashList\lib;C:\Users\fill2\source\repos\table\table\LinearOnArray\lib;C:\Users\fill2\source\repos\table\table\LinearOnList\lib;C:\Users\fill2\source\repos\table\table\OrderedOnArray\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\fill2\source\repos\table\gtest;C:\Users\fill2\source\repos\table\polinom\listlib;C:\Users\fill2\source\repos\table\polinom\polinomlib;C:\Users\fill2\source\repos\table\postfix\postfixlib;C:\Users\fill2\source\repos\table\table;C:\Users\fill2\source\repos\table\table\Tree\lib;C:\Users\fill2\source\repos\table\table\HashChain\lib;C:\Users\fill2\source\repos\table\table\HashList\lib;C:\Users\fill2\source\repos\table\table\LinearOnArray\lib;C:\Users\fill2\source\repos\table\table\LinearOnList\lib;C:\Users\fill2\source\repos\table\table\OrderedOnArray\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -59,7 +59,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\fill2\source\repos\table\gtest;C:\Users\fill2\source\repos\table\polinom\listlib;C:\Users\fill2\source\repos\table\polinom\polinomlib;C:\Users\fill2\source\repos\table\postfix\lib;C:\Users\fill2\source\repos\table\table;C:\Users\fill2\source\repos\table\table\Tree\lib;C:\Users\fill2\source\repos\table\table\HashChain\lib;C:\Users\fill2\source\repos\table\table\HashList\lib;C:\Users\fill2\source\repos\table\table\LinearOnArray\lib;C:\Users\fill2\source\repos\table\table\LinearOnList\lib;C:\Users\fill2\source\repos\table\table\OrderedOnArray\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\fill2\source\repos\table\gtest;C:\Users\fill2\source\repos\table\polinom\listlib;C:\Users\fill2\source\repos\table\polinom\polinomlib;C:\Users\fill2\source\repos\table\postfix\postfixlib;C:\Users\fill2\source\repos\table\table;C:\Users\fill2\source\repos\table\table\Tree\lib;C:\Users\fill2\source\repos\table\table\HashChain\lib;C:\Users\fill2\source\repos\table\table\HashList\lib;C:\Users\fill2\source\repos\table\table\LinearOnArray\lib;C:\Users\fill2\source\repos\table\table\LinearOnList\lib;C:\Users\fill2\source\repos\table\table\OrderedOnArray\lib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>

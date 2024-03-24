@@ -8,6 +8,7 @@ if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE Release)
 endif()
 
+
 #gtest
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/gtest)
 add_subdirectory(gtest)
@@ -18,7 +19,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/polinom/listlib ${CMAKE_CURRENT_
 add_subdirectory(polinom)
 
 #постфикс
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/postfix/lib)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/postfix/postfixlib)
 add_subdirectory(postfix)
 
 

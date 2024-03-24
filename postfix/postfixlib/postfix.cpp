@@ -158,10 +158,10 @@ string Remove0(string s) {
 	if (s.back() == '.')
 		s.pop_back();
 	return s;
-	
+
 }
 
-double ToDouble(string s, int &i) {
+double ToDouble(string s, int& i) {
 	double k = 0;
 	int kol = 0;
 	while (s[i] != '\0' && CheckNumber(s[i])) {
@@ -172,7 +172,7 @@ double ToDouble(string s, int &i) {
 		i++;
 	}
 	i--;
-	return k / pow(10, ((kol == 0)?0:kol - 1));
+	return k / pow(10, ((kol == 0) ? 0 : kol - 1));
 }
 
 string ToStringVar(string s, int& i) {
@@ -226,12 +226,12 @@ bool CheckFormula(string s)
 	MyStack<string>stack;
 	int i = 0;
 	while (i < s.size()) {
-		char c = (CheckOperator(s[i])?'+':s[i]);
+		char c = (CheckOperator(s[i]) ? '+' : s[i]);
 
-		if (!Eror(c, stack)) 
+		if (!Eror(c, stack))
 			return false;
 
-		switch (c){
+		switch (c) {
 		case '!':
 			stack.pop();
 			stack.push("P");
@@ -257,7 +257,7 @@ bool CheckFormula(string s)
 		case '+':
 
 			stack.pop();
-			stack.push(string(1,s[i]));
+			stack.push(string(1, s[i]));
 			break;
 
 		default:
@@ -271,11 +271,11 @@ bool CheckFormula(string s)
 			}
 
 			if (Func(var)) {
-				if (!CheckFunc(s,var, i))
+				if (!CheckFunc(s, var, i))
 					return false;
 				var = "SK";
 			}
-				
+
 
 			if (stack.top() == "(")
 				stack.push(var);
@@ -332,9 +332,9 @@ calculator::calculator(string formula)
 
 void calculator::SetFormula(string formula)
 {
-	formula = RemoveSpace("(" + formula  + ")");
+	formula = RemoveSpace("(" + formula + ")");
 	//Замена унарного минуса на ~
-	size_t start{ formula.find("(-")}; 
+	size_t start{ formula.find("(-") };
 	while (start != std::string::npos)
 	{
 		formula.replace(start, 2, "(~");
@@ -365,7 +365,7 @@ string calculator::GetFormula()
 string calculator::GetPostfix()
 {
 	string temp = postfix;
-	for (char &a : temp) {
+	for (char& a : temp) {
 		if (a == '~')
 			a = '-';
 	}
@@ -390,14 +390,14 @@ void calculator::FormulaConverrt()
 			while (stack.top() != "(") {
 				if (!postfix.empty() && postfix.back() != ' ')
 					postfix += " ";
-				postfix +=  stack.top();
+				postfix += stack.top();
 				stack.pop();
 			}
 			stack.pop();
 			if (!stack.empty() && Func(stack.top())) {
 				if (!postfix.empty() && postfix.back() != ' ')
 					postfix += " ";
-				postfix +=  stack.top();
+				postfix += stack.top();
 				stack.pop();
 			}
 			if (!postfix.empty() && postfix.back() != ' ')
@@ -420,7 +420,7 @@ void calculator::FormulaConverrt()
 				postfix += stack.top();
 				stack.pop();
 			}
-			stack.push(string(1,formula[i]));
+			stack.push(string(1, formula[i]));
 			if (!postfix.empty() && postfix.back() != ' ')
 				postfix += " ";
 			break;
@@ -446,7 +446,7 @@ void calculator::FormulaConverrt()
 				postfix += " ";
 		}
 		i++;
-		
+
 	}
 }
 
@@ -455,8 +455,8 @@ double calculator::Ansver()
 	MyStack<double> stack;
 	double a, b;
 	int i = 0;
-	while(i < postfix.size()){
-		char c = (CheckOperator(postfix[i]) ? '+': postfix[i]);
+	while (i < postfix.size()) {
+		char c = (CheckOperator(postfix[i]) ? '+' : postfix[i]);
 		switch (c)
 		{
 		case '~':
@@ -491,7 +491,7 @@ double calculator::Ansver()
 				else {
 					if (Func(temp) == 1) {
 						double a = stack.top(); stack.pop();
-						stack.push(DuFunc(temp,a));
+						stack.push(DuFunc(temp, a));
 					}
 					if (Func(temp) == 2) {
 						double a = stack.top(); stack.pop();

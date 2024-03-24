@@ -19,6 +19,7 @@ int vibor(int kol) {
 
 int main()
 {
+	
 	setlocale(LC_ALL, "ru");
 	int wibor;
 	TPolinom polinom;
@@ -43,7 +44,7 @@ int main()
 			TPolinom temp(s);
 			system("cls");
 			cout << "Сумма:\n";
-			polinom + temp;
+			polinom = polinom + temp;
 			cout << polinom.ToString() << endl;
 			system("pause");
 		}
@@ -53,13 +54,12 @@ int main()
 			TPolinom temp(s);
 			system("cls");
 			cout << "Произведение:\n";
-			polinom * temp;
+			polinom = polinom * temp;
 			cout << polinom.ToString() << endl;
 			system("pause");
 		}
 
 
 	} while (wibor != 5);
-
-
+	
 }
