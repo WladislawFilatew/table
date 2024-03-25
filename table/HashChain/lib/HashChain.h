@@ -1,7 +1,5 @@
 #include <iostream>
-#include <vector>
 #include "table.h"
-
 using namespace std;
 
 
@@ -17,14 +15,10 @@ private:
         int vector_id = 0;
         int list_id = 0;
         bool end = false;
-    };
+    } id;
 
-    id id;
 
 public:
-
-
-
 
     int Hash_func(string key)
     {
@@ -36,6 +30,7 @@ public:
 
         return res;
     }
+
 
     Value* Find(Key key) override;
     virtual bool Insert(Key key, Value value) override;
@@ -62,7 +57,6 @@ inline Value* HashChain<Key, Value>::Find(Key key)
     for (int i = 0; i < vector[vector_id].size(); i++)
         if (key == vector[vector_id][i].key)
         {
-            //Reset();
             return &vector[vector_id][i].value;
         }
     return nullptr;
@@ -88,7 +82,7 @@ inline bool HashChain<Key, Value>::Insert(Key _key, Value _value)
         vector[vector_id].push_back({ _key,_value });
     }
     count++;
-    //Reset();
+    Reset();
     return true;
 
 }
@@ -98,18 +92,19 @@ inline bool HashChain<Key, Value>::Delete(Key key)
 {
     int vector_id = Hash_func(key);
 
-    if (vector_id <= vector.size())
-    {
-        vector.resize(--vector_id);
-    }
-    else
+    if (vector_id >= vector.size())
         return false;
-    count--;
-    //Reset();
-    return true;
+    int size = vector[vector_id].size();
+    for (int i = 0; i < size; i++)
+        if (key == vector[vector_id][i].key) {
+            vector[vector_id].erase(vector[vector_id].begin() + i);
+            count--;
+            Reset();
+            return true;
+        }
+    return false;
 
 }
-
 
 template<class Key, class Value>
 inline Key HashChain<Key, Value>::GetKey(void) const
@@ -126,6 +121,7 @@ inline Value HashChain<Key, Value>::GetValuePtr(void)
 template<class Key, class Value>
 inline void HashChain<Key, Value>::Reset(void)
 {
+    id.end = false;
     int i = 0;
     while (vector.size() > i && vector[i].size() == 0)
         i++;
@@ -136,9 +132,6 @@ inline void HashChain<Key, Value>::Reset(void)
     id.vector_id = i;
     id.list_id = 0;
 }
-
-
-
 
 template<class Key, class Value>
 inline bool HashChain<Key, Value>::IsTabEnded(void)

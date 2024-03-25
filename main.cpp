@@ -223,7 +223,7 @@ int main() {
 				nowwibor = 7;
 			}
 			if (nowwibor == 6) {
-				men.ChooseTable("???");
+				men.ChooseTable("HashChain");
 				nowwibor = 7;
 			}
 			while (nowwibor != 7);

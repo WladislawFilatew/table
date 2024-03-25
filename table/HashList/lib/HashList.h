@@ -121,6 +121,7 @@ inline Value HashList<Key, Value>::GetValuePtr(void)
 template<class Key, class Value>
 inline void HashList<Key, Value>::Reset(void)
 {
+    id.end = false;
     int i = 0;
     while (vector.size() > i && vector[i].size() == 0)
         i++;

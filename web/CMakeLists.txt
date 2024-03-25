@@ -5,9 +5,11 @@ set(nameMain "Main")
 file(GLOB hdrs "*.h*")
 file(GLOB srcs "*.cpp")
 file(GLOB resx "*.resx")
+file(GLOB men "../maneger.spp")
+
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} /SUBSYSTEM:WINDOWS /ENTRY:${nameMain}")
-add_executable(${target} WIN32 ${srcs} ${hdrs} ${resx})
+add_executable(${target} WIN32 ${srcs} ${hdrs} ${resx} ${maneger})
 target_link_libraries(${target})
 set_target_properties(${target} PROPERTIES
     FOLDER ${target}

@@ -8,7 +8,7 @@
 #include "OrderedOnArray.h"
 #include "Tree.h"
 #include "HashList.h"
-
+#include "HashChain.h"
 #include <map>
 using namespace std;
 
@@ -29,6 +29,7 @@ public:
 		temp.emplace("OrderedOnArray", new OrderedOnArray<string, TPolinom>);
 		temp.emplace("Tree", new Tree<string, TPolinom>);
 		temp.emplace("HashList", new HashList<string, TPolinom>);
+		temp.emplace("HashChain", new HashChain<string, TPolinom>);
 		tec = temp["LinerOnArray"];
 	}
 	bool Insert(string key, TPolinom value);

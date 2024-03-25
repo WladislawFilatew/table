@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+#include "../maneger.h"
 
 
 namespace CppWinForm1 {
@@ -16,14 +18,16 @@ namespace CppWinForm1 {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 		bool flag = false;
-
-
+		maneger* men;
+		
 	public:
 		MyForm(void)
 		{
 			InitializeComponent();
 			doSom();
 			flag = true;
+			men = new maneger();
+			
 		}
 		
 		void doSom() {
