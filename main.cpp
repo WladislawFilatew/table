@@ -10,6 +10,26 @@ using namespace std;
 int vibor(int kol);
 int nowvibor(int kol);
 
+void NotKey() {
+	cout << "Данный ключ в таблице не обнаружен" << endl;
+	system("pause");
+	system("cls");
+}
+
+
+TPolinom* GetPolinom(maneger &men, string &k = string("key")) {
+	TPolinom* temp;
+	do {
+		cout << "Введите ключ:" << endl;
+		getline(cin, k);
+		while (k == "")
+			getline(cin, k);
+		temp = men.Find(k);
+		if (temp == nullptr) NotKey();
+	} while (temp == nullptr);
+	return temp;
+}
+
 
 int main() {
 
@@ -31,7 +51,6 @@ int main() {
 	setlocale(LC_ALL, "ru");
 	int wibor;
 	int nowwibor;
-	TPolinom polinom;
 	do {
 		system("cls");
 		cout << "\tМеню:\n1)Операции над отдельными полиномами\n2)Операции в выражениях из полиномов\n3)Операции над таблицами\n4)Выбор таблиц\n";
@@ -44,9 +63,8 @@ int main() {
 			nowwibor = nowvibor(5);
 			system("cls");
 			if (nowwibor == 1) {
-				cout << "Введите ключ:" << endl;
-				string k; getline(cin, k);
-				postfix::calculator a((*men.Find(k)).ToPostfix());
+				TPolinom* temp = GetPolinom(men);
+				postfix::calculator a((*temp).ToPostfix());
 				auto var = a.GetVar();
 				for (auto& a : var) {
 					cout << a.first << " = ";
@@ -55,35 +73,34 @@ int main() {
 				a.SetVar(var);
 				system("cls");
 				cout << a.Ansver() << endl;
+				system("pause");
+				nowwibor = 5;
 			}
 			if (nowwibor == 2) {
-				double n;
-				cout << "Введите ключ:" << endl;
-				string k; getline(cin, k);
-				men.Find(k);
+				int n;
+				string k;
+				TPolinom polinom = *GetPolinom(men, k);
 				cout << "Введите константу:" << endl;
 				cin >> n;
-				polinom.operator*(n);
+				polinom = polinom.operator*(n);
+				men.Insert(k + "*" + to_string(n), polinom);
+				nowwibor = 5;
 			}
 			if (nowwibor == 3) {
-				char n;
-				cout << "Введите ключ:" << endl;
-				string k; getline(cin, k);
-				men.Find(k);
-				TPolinom polin;
+				char n; string k;
+				TPolinom polin = *GetPolinom(men,k);
 				cout << "Введите по какой переменной хотите найти производную:" << endl;
 				cin >> n;
 				men.Insert(k + "_der", polin.derivative(n));
+				nowwibor = 5;
 			}
 			if (nowwibor == 4) {
-				char n;
-				cout << "Введите ключ:" << endl;
-				string k; getline(cin, k);
-				men.Find(k);
-				TPolinom polin;
+				char n; string k;
+				TPolinom polin = *GetPolinom(men, k);
 				cout << "Введите по какой переменной хотите вычислить интеграл:" << endl;
 				cin >> n;
 				men.Insert(k + "_ins", polin.Integral(n));
+				nowwibor = 5;
 			}
 			while (nowwibor != 5);
 		}
@@ -99,40 +116,42 @@ int main() {
 			nowwibor = nowvibor(6);
 			system("cls");
 			if (nowwibor == 1) {
-				cout << "Введите первый ключ:" << endl;
-				string k; getline(cin, k);
-				cout << "Введите второй ключ:" << endl;
-				string g; getline(cin, g);
-				men.Insert(k + "+" + g, *men.Find(k) + *men.Find(g));
+				string k; string g;
+				men.Insert(k + "+" + g, *GetPolinom(men, k) + *GetPolinom(men, g));
+				cout << *men.Find(k + "+" + g);
+				system("pause");
+				nowwibor = 6;
 			}
 			if (nowwibor == 2) {
-				cout << "Введите первый ключ:" << endl;
-				string k; getline(cin, k);
-				cout << "Введите второй ключ:" << endl;
-				string g; getline(cin, g);
-				men.Insert(k + "-" + g, *men.Find(k) - *men.Find(g));
+				string k; string g;
+				men.Insert(k + "-" + g, *GetPolinom(men, k) - *GetPolinom(men, g));
+				cout << *men.Find(k + "-" + g);
+				system("pause");
+				nowwibor = 6;
 			}
 			if (nowwibor == 3) {
-				double n;
-				cout << "Введите первый ключ:" << endl;
-				string k; getline(cin, k);
+				double n; string k;
+				TPolinom polinom = *GetPolinom(men, k);
 				cout << "Введите константу:" << endl;
 				cin >> n;
-				men.Insert(k + "*" + k, *men.Find(k) * n);
+				men.Insert(k + "*" + to_string(n), polinom);
+				cout << *men.Find(k + "*" + to_string(n));
+				system("pause");
+				nowwibor = 6;
 			}
 			if (nowwibor == 4) {
-				cout << "Введите ключ первого полинома:" << endl;
-				string k; getline(cin, k);
-				cout << "Введите ключ второго полинома:" << endl;
-				string g; getline(cin, g);
-				men.Insert(k + "*" + g, *men.Find(k) * *men.Find(g));
+				string k; string g;
+				men.Insert(k + "*" + g, *GetPolinom(men, k) * *GetPolinom(men, g));
+				cout << *men.Find(k + "*" + g);
+				system("pause");
+				nowwibor = 6;
 			}
 			if (nowwibor == 5) {
-				cout << "Введите ключ первого полинома:" << endl;
-				string k; getline(cin, k);
-				cout << "Введите ключ второго полинома:" << endl;
-				string g; getline(cin, g);
-				men.Insert(k + "*" + g, *men.Find(k) / *men.Find(g));
+				string k; string g;
+				men.Insert(k + "/" + g, *GetPolinom(men, k) / *GetPolinom(men, g));
+				cout << *men.Find(k + "/" + g);
+				system("pause");
+				nowwibor = 6;
 			}
 			while (nowwibor != 6);
 		}
@@ -147,24 +166,31 @@ int main() {
 			if (nowwibor == 1) {
 				cout << "Введите ключ:" << endl;
 				string k; getline(cin, k);
+				while (k == "")
+					getline(cin, k);
 				cout << "Введите полином:" << endl;
 				string s; getline(cin, s);
-				polinom.setPolinom(s);
-				men.Insert(k, s);
+				while (s == "")
+					getline(cin, s);
+				TPolinom polinom(s);
+				men.Insert(k, polinom);
+				nowwibor = 5;
 			}
 			if (nowwibor == 2) {
-				cout << "Введите ключ:" << endl;
-				string k; getline(cin, k);
+				string k;
+				GetPolinom(men, k);
 				men.Delete(k);
+				nowwibor = 5;
 			}
 			if (nowwibor == 3) {
-				cout << "Введите ключ:" << endl;
-				string k; getline(cin, k);
-				men.Find(k);
-				cout << men.Find(k);
+				cout << *GetPolinom(men);
+				system("pause");
+				nowwibor = 5;
 			}
 			if (nowwibor == 4) {
 				cout << men;
+				system("pause");
+				nowwibor = 5;
 			}
 			while (nowwibor != 5);
 		}
@@ -177,21 +203,27 @@ int main() {
 			system("cls");
 			if (nowwibor == 1) {
 				men.ChooseTable("LinerOnArray");
+				nowwibor = 7;
 			}
 			if (nowwibor == 2) {
 				men.ChooseTable("LinearOnList");
+				nowwibor = 7;
 			}
 			if (nowwibor == 3) {
 				men.ChooseTable("OrderedOnArray");
+				nowwibor = 7;
 			}
 			if (nowwibor == 4) {
 				men.ChooseTable("Tree");
+				nowwibor = 7;
 			}
 			if (nowwibor == 5) {
 				men.ChooseTable("???");
+				nowwibor = 7;
 			}
 			if (nowwibor == 5) {
 				men.ChooseTable("???");
+				nowwibor = 7;
 			}
 			while (nowwibor != 7);
 		}

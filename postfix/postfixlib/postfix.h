@@ -651,7 +651,7 @@ namespace postfix {
 					}
 				}
 				else if (CheckNumber(c)) {
-					double num = ToDouble(formula, i);
+					int num = ToDouble(formula, i);
 					postfix += Remove0(to_string(num));
 				}
 				else

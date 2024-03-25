@@ -254,15 +254,26 @@ inline TMonom& TMonom::operator*(const TMonom& other)
 
 inline TMonom TMonom::derivative(char c)
 {
+	bool flag = false;
 	TMonom temp = *this;
 	if ((c == 'X' || c == 'x') && temp.index >= 100) {
+		temp.coef *= (index / 100);
 		temp.index -= 100;
+		flag = true;
 	}
 	if ((c == 'Y' || c == 'y') && (temp.index % 100) >= 10) {
+		temp.coef *= (index % 100 / 10);
 		temp.index -= 10;
+		flag = true;
 	}
 	if (c == 'Z' || c == 'z' && (temp.index % 10) >= 1) {
+		temp.coef *= (index % 10);
 		temp.index -= 1;
+		flag = true;
+	}
+	if (!flag) {
+		temp.index = 0;
+		temp.coef = 0;
 	}
 	return temp;
 }

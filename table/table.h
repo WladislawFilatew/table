@@ -105,14 +105,41 @@ public:
     friend ostream& operator<<(ostream& os, table& tab)
     {
         cout << "Table printing" << endl;
+        int key_lenght = 0;
+        int value_lenght = 0;
+
         for (tab.Reset(); !tab.IsTabEnded(); tab.GoNext())
         {
-            os << " Key: " << tab.GetKey() << " Val: " << tab.GetValuePtr() << endl;
+            if (tab.GetKey().size() >= key_lenght)
+                key_lenght = tab.GetKey().size();
+            if (tab.GetValuePtr().ToString().size() >= value_lenght)
+                value_lenght = tab.GetValuePtr().ToString().size();
         }
+        for (int i = 0; i < key_lenght + value_lenght + 17;i++) {
+            os << "-";
+        }
+        os << "\n";
+
+        for (tab.Reset(); !tab.IsTabEnded(); tab.GoNext())
+        {
+            os << "| Key: ";
+            os.setf(ios::left);
+            os.width(key_lenght);
+            os << tab.GetKey();
+            os << " | Val: ";
+            os.width(value_lenght);
+            os << tab.GetValuePtr().ToString() << " |" << endl;
+        }
+        for (int i = 0; i < key_lenght + value_lenght + 17; i++) {
+            os << "-";
+        }
+        os << "\n";
         return os;
     }
 
 };
+
+
 
 
 

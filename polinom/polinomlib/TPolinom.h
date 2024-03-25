@@ -133,6 +133,7 @@ public:
 
 	string ToPostfix();
 
+
 };
 
 void TPolinom::setPolinom(string s) {
@@ -308,7 +309,8 @@ inline TPolinom TPolinom::derivative(char c)
 	it = temp.list.begin();
 	while (it != temp.list.end()) {
 		(*it) = (*it).derivative(c);
-		it++;
+		if ((*it).coef == 0)
+			temp.list.erase(it);
 	}
 
 	return temp;
