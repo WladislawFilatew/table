@@ -6,6 +6,12 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="C:\Users\fill2\source\repos\table\web\DialogPerem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\fill2\source\repos\table\web\DialogToch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\fill2\source\repos\table\web\MyForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -14,6 +20,12 @@
     <CustomBuild Include="C:\Users\fill2\source\repos\table\web\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="C:\Users\fill2\source\repos\table\web\DialogPerem.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C:\Users\fill2\source\repos\table\web\DialogToch.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
     <EmbeddedResource Include="C:\Users\fill2\source\repos\table\web\MyForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>

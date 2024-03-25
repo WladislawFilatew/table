@@ -17,6 +17,12 @@ using namespace std;
 *  ласс €чейки дл€ списка
 */
 
+struct Line
+{
+	string key;
+	TPolinom value;
+};
+
 class maneger {
 private:
 	map<string, table<string, TPolinom>*> temp;
@@ -41,6 +47,28 @@ public:
 		cout << (*tab.tec);
 		return os;
 	}
+	class iterator {
+		table<string,TPolinom>* tec;
+	public:
+		iterator(maneger men) {	
+			tec = men.tec;
+			tec->Reset();
+		}
+		Line operator*() {
+			Line temp;
+			temp.key = tec->GetKey();
+			temp.value = tec->GetValuePtr();
+			return temp;
+		}
+		void operator++(int n) {
+			tec->GoNext();
+		}
+		bool end() {
+			return tec->IsTabEnded();
+		}
+	};
+	int size() { return tec->Count(); }
+
 };
 
 bool maneger::Insert(string key, TPolinom value) {

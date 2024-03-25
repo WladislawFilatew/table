@@ -1,4 +1,5 @@
 #include "MyForm.h"
+#include "DialogToch.h"
 
 
 using namespace System;
@@ -12,5 +13,6 @@ void Main()
 	Application::SetCompatibleTextRenderingDefault(false);
 	
 	CppWinForm1::MyForm form;
+	//CppWinDialogTochForm::DialogTochForm form;
 	Application::Run(% form);
 }

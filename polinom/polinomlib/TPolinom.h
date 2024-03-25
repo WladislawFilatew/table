@@ -304,6 +304,10 @@ string TPolinom::ToString()
 				result += " + ";
 		}
 	}
+	if (result[result.size() - 2] == '+') {
+		result.pop_back();
+		result.pop_back();
+	}
 	return result;
 }
 

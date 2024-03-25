@@ -213,6 +213,12 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\fill2\source\repos\table\web\MyForm.cpp" />
+    <ClInclude Include="C:\Users\fill2\source\repos\table\web\DialogPerem.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="C:\Users\fill2\source\repos\table\web\DialogToch.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="C:\Users\fill2\source\repos\table\web\MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -240,6 +246,16 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="C:\Users\fill2\source\repos\table\web\DialogPerem.resx">
+      <DependentUpon>C:\Users\fill2\source\repos\table\web\DialogPerem.h</DependentUpon>
+      <LogicalName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(RootNamespace).%(Filename).resources</LogicalName>
+      <LogicalName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(RootNamespace).%(Filename).resources</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="C:\Users\fill2\source\repos\table\web\DialogToch.resx">
+      <DependentUpon>C:\Users\fill2\source\repos\table\web\DialogToch.h</DependentUpon>
+      <LogicalName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(RootNamespace).%(Filename).resources</LogicalName>
+      <LogicalName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(RootNamespace).%(Filename).resources</LogicalName>
+    </EmbeddedResource>
     <EmbeddedResource Include="C:\Users\fill2\source\repos\table\web\MyForm.resx">
       <DependentUpon>C:\Users\fill2\source\repos\table\web\MyForm.h</DependentUpon>
       <LogicalName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(RootNamespace).%(Filename).resources</LogicalName>

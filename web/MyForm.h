@@ -1,7 +1,11 @@
 #pragma once
 
 #include <vector>
+#include <msclr/marshal_cppstd.h>
 #include "../maneger.h"
+#include "postfix.h"
+#include "DialogToch.h"
+#include "DialogPerem.h"
 
 
 namespace CppWinForm1 {
@@ -19,6 +23,12 @@ namespace CppWinForm1 {
 	{
 		bool flag = false;
 		maneger* men;
+		int tec1 = -1;
+
+
+
+
+		   int tec2 = -1;
 		
 	public:
 		MyForm(void)
@@ -27,11 +37,56 @@ namespace CppWinForm1 {
 			doSom();
 			flag = true;
 			men = new maneger();
+
+			/*men->Insert("key", TPolinom("x + y - z"));
+			men->Insert("key1", TPolinom("x + y - z"));
+			men->Insert("key2", TPolinom("x + y - z"));*/
+
+			setTabel();
+		}
+
+
+		void setTabel() {
+
+
+
+			int i = 0;
+			int size = men->size();
+			int sizeTable = Table1->RowCount;
+
+			for (int i = 0; i < sizeTable; i++) {
+				Table1->Rows[i]->Cells[0]->Value = "";
+				Table1->Rows[i]->Cells[1]->Value = "";
+			}
 			
+			if (size > sizeTable) {
+				for (int i = sizeTable; i <= size; i++) {
+					DataGridViewCell^ key0 = gcnew DataGridViewTextBoxCell();
+					DataGridViewCell^ polinom0 = gcnew DataGridViewTextBoxCell();
+
+					key0->Value = "";
+					polinom0->Value = "";
+
+					DataGridViewRow^ row0 = gcnew DataGridViewRow();
+					row0->Cells->AddRange(key0, polinom0);
+					Table1->Rows->AddRange(row0);
+				}
+			}
+
+			maneger::iterator it(*men);
+			while (!it.end()) {
+				Line temp = (*it);
+				Table1->Rows[i]->Cells[0]->Value = gcnew String(temp.key.c_str());
+				Table1->Rows[i]->Cells[1]->Value = gcnew String(temp.value.ToString().c_str());
+
+				it++; i++;
+			}
+	
 		}
 		
 		void doSom() {
 
+			
 			
 			this->Width = 800;
 			this->Height = 400;
@@ -91,21 +146,21 @@ namespace CppWinForm1 {
 	private: System::Windows::Forms::ToolStripMenuItem^ îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem;
 
 	private: System::Windows::Forms::ToolStripMenuItem^ îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ âû÷èñëåíèåÂÒî÷êåToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ ïğîèçâîäíàÿToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ èíòåãğàëToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ñëîæåíèåToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ âû÷èòàíèåToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ óìíîæåíèåÏîëèíîìîâToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ äåëåíèåÏîëèíîìîâToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ äîáàâëåíèåÏîëèíîìàToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ óäàëåíèåÏîëèíîìàToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ ïîèñêToolStripMenuItem;
-	private: System::Windows::Forms::ToolStripMenuItem^ âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem;
+
+
+
+
+
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button4;
@@ -141,21 +196,13 @@ namespace CppWinForm1 {
 			this->menuStrip2 = (gcnew System::Windows::Forms::MenuStrip());
 			this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ïğîèçâîäíàÿToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->èíòåãğàëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->ñëîæåíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âû÷èòàíèåToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->äåëåíèåÏîëèíîìîâToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->óäàëåíèåÏîëèíîìàToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ïîèñêToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button4 = (gcnew System::Windows::Forms::Button());
@@ -187,9 +234,9 @@ namespace CppWinForm1 {
 			// 
 			this->menuStrip2->GripMargin = System::Windows::Forms::Padding(2, 2, 0, 2);
 			this->menuStrip2->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->menuStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+			this->menuStrip2->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
 				this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem,
-					this->îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem, this->îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem
+					this->îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem
 			});
 			this->menuStrip2->Location = System::Drawing::Point(0, 0);
 			this->menuStrip2->Name = L"menuStrip2";
@@ -200,45 +247,40 @@ namespace CppWinForm1 {
 			// 
 			// îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem
 			// 
-			this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
+			this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
 				this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem,
-					this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem, this->ïğîèçâîäíàÿToolStripMenuItem, this->èíòåãğàëToolStripMenuItem
+					this->ïğîèçâîäíàÿToolStripMenuItem, this->èíòåãğàëToolStripMenuItem
 			});
 			this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Name = L"îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem";
 			this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Size = System::Drawing::Size(487, 36);
 			this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Text = L"Îïåğàöèè íàä îòäåëüíûìè ïîëèíîìàìè";
-			this->îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem_Click);
 			// 
 			// âû÷èñëåíèåÂÒî÷êåToolStripMenuItem
 			// 
 			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Name = L"âû÷èñëåíèåÂÒî÷êåToolStripMenuItem";
-			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Size = System::Drawing::Size(427, 44);
+			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Size = System::Drawing::Size(374, 44);
 			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Text = L"Âû÷èñëåíèå â òî÷êå";
-			// 
-			// óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem
-			// 
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem->Name = L"óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem";
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem->Size = System::Drawing::Size(427, 44);
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem->Text = L"Óìíîæåíèå íà êîíñòàíòó";
+			this->âû÷èñëåíèåÂÒî÷êåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âû÷èñëåíèåÂÒî÷êåToolStripMenuItem_Click);
 			// 
 			// ïğîèçâîäíàÿToolStripMenuItem
 			// 
 			this->ïğîèçâîäíàÿToolStripMenuItem->Name = L"ïğîèçâîäíàÿToolStripMenuItem";
-			this->ïğîèçâîäíàÿToolStripMenuItem->Size = System::Drawing::Size(427, 44);
+			this->ïğîèçâîäíàÿToolStripMenuItem->Size = System::Drawing::Size(374, 44);
 			this->ïğîèçâîäíàÿToolStripMenuItem->Text = L"Ïğîèçâîäíàÿ";
+			this->ïğîèçâîäíàÿToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ïğîèçâîäíàÿToolStripMenuItem_Click);
 			// 
 			// èíòåãğàëToolStripMenuItem
 			// 
 			this->èíòåãğàëToolStripMenuItem->Name = L"èíòåãğàëToolStripMenuItem";
-			this->èíòåãğàëToolStripMenuItem->Size = System::Drawing::Size(427, 44);
+			this->èíòåãğàëToolStripMenuItem->Size = System::Drawing::Size(374, 44);
 			this->èíòåãğàëToolStripMenuItem->Text = L"Èíòåãğàë";
+			this->èíòåãğàëToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::èíòåãğàëToolStripMenuItem_Click);
 			// 
 			// îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem
 			// 
-			this->îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(6) {
+			this->îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
 				this->ñëîæåíèåToolStripMenuItem,
-					this->âû÷èòàíèåToolStripMenuItem, this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1, this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem, this->äåëåíèåÏîëèíîìîâToolStripMenuItem,
-					this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem
+					this->âû÷èòàíèåToolStripMenuItem, this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem, this->äåëåíèåÏîëèíîìîâToolStripMenuItem
 			});
 			this->îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->Name = L"îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem";
 			this->îïåğàöèèÂÂûğàæåíèÿõÈçÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(478, 36);
@@ -247,73 +289,30 @@ namespace CppWinForm1 {
 			// ñëîæåíèåToolStripMenuItem
 			// 
 			this->ñëîæåíèåToolStripMenuItem->Name = L"ñëîæåíèåToolStripMenuItem";
-			this->ñëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(556, 44);
+			this->ñëîæåíèåToolStripMenuItem->Size = System::Drawing::Size(412, 44);
 			this->ñëîæåíèåToolStripMenuItem->Text = L"Ñëîæåíèå";
+			this->ñëîæåíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñëîæåíèåToolStripMenuItem_Click);
 			// 
 			// âû÷èòàíèåToolStripMenuItem
 			// 
 			this->âû÷èòàíèåToolStripMenuItem->Name = L"âû÷èòàíèåToolStripMenuItem";
-			this->âû÷èòàíèåToolStripMenuItem->Size = System::Drawing::Size(556, 44);
+			this->âû÷èòàíèåToolStripMenuItem->Size = System::Drawing::Size(412, 44);
 			this->âû÷èòàíèåToolStripMenuItem->Text = L"Âû÷èòàíèå";
-			// 
-			// óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1
-			// 
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1->Name = L"óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1";
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1->Size = System::Drawing::Size(556, 44);
-			this->óìíîæåíèåÍàÊîíñòàíòóToolStripMenuItem1->Text = L"Óìíîæåíèå íà êîíñòàíòó";
+			this->âû÷èòàíèåToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âû÷èòàíèåToolStripMenuItem_Click);
 			// 
 			// óìíîæåíèåÏîëèíîìîâToolStripMenuItem
 			// 
 			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Name = L"óìíîæåíèåÏîëèíîìîâToolStripMenuItem";
-			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(556, 44);
+			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(412, 44);
 			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Text = L"Óìíîæåíèå ïîëèíîìîâ";
+			this->óìíîæåíèåÏîëèíîìîâToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::óìíîæåíèåÏîëèíîìîâToolStripMenuItem_Click);
 			// 
 			// äåëåíèåÏîëèíîìîâToolStripMenuItem
 			// 
 			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Name = L"äåëåíèåÏîëèíîìîâToolStripMenuItem";
-			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(556, 44);
+			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Size = System::Drawing::Size(412, 44);
 			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Text = L"Äåëåíèå ïîëèíîìîâ";
-			// 
-			// èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem
-			// 
-			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem->Name = L"èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem";
-			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem->Size = System::Drawing::Size(556, 44);
-			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem->Text = L"Èñïîëüçîâàíèå ïîñòôèêñíîé ôîğìû";
-			this->èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem_Click);
-			// 
-			// îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem
-			// 
-			this->îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(4) {
-				this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem,
-					this->óäàëåíèåÏîëèíîìàToolStripMenuItem, this->ïîèñêToolStripMenuItem, this->âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem
-			});
-			this->îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem->Name = L"îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem";
-			this->îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem->Size = System::Drawing::Size(320, 36);
-			this->îïåğàöèèÍàäÒàáëèöàìèToolStripMenuItem->Text = L"Îïåğàöèè íàä òàáëèöàìè";
-			// 
-			// äîáàâëåíèåÏîëèíîìàToolStripMenuItem
-			// 
-			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem->Name = L"äîáàâëåíèåÏîëèíîìàToolStripMenuItem";
-			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem->Size = System::Drawing::Size(532, 44);
-			this->äîáàâëåíèåÏîëèíîìàToolStripMenuItem->Text = L"Äîáàâëåíèå ïîëèíîìà";
-			// 
-			// óäàëåíèåÏîëèíîìàToolStripMenuItem
-			// 
-			this->óäàëåíèåÏîëèíîìàToolStripMenuItem->Name = L"óäàëåíèåÏîëèíîìàToolStripMenuItem";
-			this->óäàëåíèåÏîëèíîìàToolStripMenuItem->Size = System::Drawing::Size(532, 44);
-			this->óäàëåíèåÏîëèíîìàToolStripMenuItem->Text = L"Óäàëåíèå ïîëèíîìà";
-			// 
-			// ïîèñêToolStripMenuItem
-			// 
-			this->ïîèñêToolStripMenuItem->Name = L"ïîèñêToolStripMenuItem";
-			this->ïîèñêToolStripMenuItem->Size = System::Drawing::Size(532, 44);
-			this->ïîèñêToolStripMenuItem->Text = L"Ïîèñê";
-			// 
-			// âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem
-			// 
-			this->âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem->Name = L"âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem";
-			this->âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem->Size = System::Drawing::Size(532, 44);
-			this->âûâîäÀêòèâíîéÒàáëèöûÍàİêğàíToolStripMenuItem->Text = L"Âûâîä àêòèâíîé òàáëèöû íà ıêğàí";
+			this->äåëåíèåÏîëèíîìîâToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::äåëåíèåÏîëèíîìîâToolStripMenuItem_Click);
 			// 
 			// button2
 			// 
@@ -327,6 +326,7 @@ namespace CppWinForm1 {
 			this->button2->TabIndex = 7;
 			this->button2->Text = L"Ëèíåéíàÿ íà ñïèñêå";
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
 			// button3
 			// 
@@ -340,6 +340,7 @@ namespace CppWinForm1 {
 			this->button3->TabIndex = 8;
 			this->button3->Text = L"Óïîğÿäî÷åííàÿ íà ìàññèâå";
 			this->button3->UseVisualStyleBackColor = false;
+			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// button4
 			// 
@@ -353,6 +354,7 @@ namespace CppWinForm1 {
 			this->button4->TabIndex = 9;
 			this->button4->Text = L"Äåğåâî";
 			this->button4->UseVisualStyleBackColor = false;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
 			// button5
 			// 
@@ -366,6 +368,7 @@ namespace CppWinForm1 {
 			this->button5->TabIndex = 10;
 			this->button5->Text = L"Õıø - 1";
 			this->button5->UseVisualStyleBackColor = false;
+			this->button5->Click += gcnew System::EventHandler(this, &MyForm::button5_Click);
 			// 
 			// button6
 			// 
@@ -380,6 +383,7 @@ namespace CppWinForm1 {
 			this->button6->TabIndex = 11;
 			this->button6->Text = L"Õıø - 2";
 			this->button6->UseVisualStyleBackColor = false;
+			this->button6->Click += gcnew System::EventHandler(this, &MyForm::button6_Click);
 			// 
 			// dataSet1
 			// 
@@ -397,7 +401,12 @@ namespace CppWinForm1 {
 			this->Table1->RowTemplate->Height = 24;
 			this->Table1->Size = System::Drawing::Size(935, 446);
 			this->Table1->TabIndex = 5;
-			this->Table1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::dataGridView1_CellContentClick);
+			this->Table1->CellClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::Table1_CellClick);
+			this->Table1->CellEndEdit += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::Table1_CellEndEdit);
+			this->Table1->CellParsing += gcnew System::Windows::Forms::DataGridViewCellParsingEventHandler(this, &MyForm::Table1_CellParsing);
+			this->Table1->RowPrePaint += gcnew System::Windows::Forms::DataGridViewRowPrePaintEventHandler(this, &MyForm::Table1_RowPrePaint);
+			this->Table1->UserDeletedRow += gcnew System::Windows::Forms::DataGridViewRowEventHandler(this, &MyForm::Table1_UserDeletedRow);
+			this->Table1->UserDeletingRow += gcnew System::Windows::Forms::DataGridViewRowCancelEventHandler(this, &MyForm::Table1_UserDeletingRow);
 			// 
 			// MyForm
 			// 
@@ -417,8 +426,6 @@ namespace CppWinForm1 {
 			this->MinimumSize = System::Drawing::Size(800, 400);
 			this->Name = L"MyForm";
 			this->Text = L"Òàáëèöà";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			this->ResizeEnd += gcnew System::EventHandler(this, &MyForm::MyForm_ResizeEnd);
 			this->SizeChanged += gcnew System::EventHandler(this, &MyForm::MyForm_SizeChanged);
 			this->menuStrip2->ResumeLayout(false);
 			this->menuStrip2->PerformLayout();
@@ -431,22 +438,25 @@ namespace CppWinForm1 {
 #pragma endregion
 		
 	
-	
-
 	private: System::Void button1_Click_1(System::Object^ sender, System::EventArgs^ e) {
-		
+		men->ChooseTable("LinerOnArray");
 	}
-	private: System::Void îïåğàöèèÍàäÎòäåëüíûìèÏîëèíîìàìèToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		men->ChooseTable("LinearOnList");
 	}
-private: System::Void èñïîëüçîâàíèåÏîñòôèêñíîãéÔîğìûToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-}
-private: System::Void dataGridView1_CellContentClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
-}
-private: System::Void MyForm_ResizeEnd(System::Object^ sender, System::EventArgs^ e) {
-	
-}
+	private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+		men->ChooseTable("OrderedOnArray");
+	}
+	private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+		men->ChooseTable("Tree");
+	}
+	private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e) {
+		men->ChooseTable("HashList");
+	}
+	private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+		men->ChooseTable("HashChain");
+	}
+
 
 	private: System::Void MyForm_SizeChanged(System::Object^ sender, System::EventArgs^ e) {
 		if (flag) {
@@ -478,5 +488,199 @@ private: System::Void MyForm_ResizeEnd(System::Object^ sender, System::EventArgs
 			}
 		}
 	}
+
+private: System::Void Table1_UserDeletedRow(System::Object^ sender, System::Windows::Forms::DataGridViewRowEventArgs^ e) {
+	setTabel();
+	int a = men->size();
+}
+private: System::Void Table1_UserDeletingRow(System::Object^ sender, System::Windows::Forms::DataGridViewRowCancelEventArgs^ e) {
+	int del = e->Row->Index;
+	string s = msclr::interop::marshal_as<std::string>(Table1->Rows[del]->Cells[0]->Value->ToString());
+	men->Delete(s);
+}
+private: System::Void Table1_CellParsing(System::Object^ sender, System::Windows::Forms::DataGridViewCellParsingEventArgs^ e) {
+	/*int h = e->RowIndex;
+	int w = e->ColumnIndex;
+	if (w == 0) {
+		if (value != nullptr) {
+			string key = msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[0]->Value->ToString());
+			men->Insert(key, *value);
+			delete value;
+			value = nullptr;
+			setTabel();
+			this->Text = gcnew String(key.c_str());
+		}
+		else {
+			key = new string(msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[0]->Value->ToString()));
+		}
+
+	}
+	if (w == 1) {
+		if (key != nullptr) {
+			string value = msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[1]->Value->ToString());
+			men->Insert(*key, value);
+			delete key;
+			key = nullptr;
+			setTabel();
+		}
+		else {
+			value = new string(msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[1]->Value->ToString()));
+		}
+	}*/
+	
+}
+private: System::Void Table1_CellEndEdit(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	int h = e->RowIndex;
+	int w = e->ColumnIndex;
+	if (w == 0) {
+		if (Table1->Rows[h]->Cells[1]->Value->ToString() != "") {
+			string key = msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[0]->Value->ToString());
+			string value = msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[1]->Value->ToString());
+			men->Insert(key, value);
+			setTabel();
+		}
+
+	}
+	if (w == 1) {
+		if (Table1->Rows[h]->Cells[0]->Value->ToString() != "") {
+			string value = msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[1]->Value->ToString());
+			string key = msclr::interop::marshal_as<std::string>(Table1->Rows[h]->Cells[0]->Value->ToString());
+			men->Insert(key, value);
+			setTabel();
+		}
+	}
+}
+	  
+	   
+private: System::Void Table1_RowPrePaint(System::Object^ sender, System::Windows::Forms::DataGridViewRowPrePaintEventArgs^ e) {
+	DataGridViewRow^ row = Table1->Rows[e->RowIndex];
+
+	// Ïğîâåğÿåì óñëîâèå äëÿ îïğåäåëåííîé ñòğîêè (íàïğèìåğ, âîçğàñò > 30)
+	if (e->RowIndex == tec1)
+	{
+		row->DefaultCellStyle->BackColor = System::Drawing::Color::FromArgb(121,245,138); // Çàäàåì æåëòûé öâåò ôîíà äëÿ ñòğîêè
+	}
+	else if (e->RowIndex == tec2)
+	{
+		row->DefaultCellStyle->BackColor = System::Drawing::Color::FromArgb(224, 242, 62); // Çàäàåì æåëòûé öâåò ôîíà äëÿ ñòğîêè
+	}
+	else {
+		row->DefaultCellStyle->BackColor = System::Drawing::Color::White;
+	}
+}
+private: System::Void Table1_CellClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
+	int t = e->RowIndex;
+	tec2 = tec1;
+	tec1 = t;
+}
+private: System::Void ñëîæåíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	string value1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[1]->Value->ToString());
+	string key1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[0]->Value->ToString());
+
+	string value2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[1]->Value->ToString());
+	string key2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[0]->Value->ToString());
+
+	TPolinom* pol1 = men->Find(key1);
+	TPolinom* pol2 = men->Find(key2);
+	if (pol1 != nullptr && pol2 != nullptr) {
+		men->Insert(key1 + " + " + key2, *pol1 + *pol2);
+		setTabel();
+	}
+}
+	   
+
+private: System::Void âû÷èòàíèåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	string value1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[1]->Value->ToString());
+	string key1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[0]->Value->ToString());
+
+	string value2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[1]->Value->ToString());
+	string key2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[0]->Value->ToString());
+
+	TPolinom* pol1 = men->Find(key1);
+	TPolinom* pol2 = men->Find(key2);
+	if (pol1 != nullptr && pol2 != nullptr) {
+		men->Insert(key1 + " - " + key2, *pol1 - *pol2);
+		setTabel();
+	}
+}
+private: System::Void óìíîæåíèåÏîëèíîìîâToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	string value1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[1]->Value->ToString());
+	string key1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[0]->Value->ToString());
+
+	string value2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[1]->Value->ToString());
+	string key2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[0]->Value->ToString());
+
+	TPolinom* pol1 = men->Find(key1);
+	TPolinom* pol2 = men->Find(key2);
+	if (pol1 != nullptr && pol2 != nullptr) {
+		men->Insert(key1 + " * " + key2, *pol1 * *pol2);
+		setTabel();
+	}
+}
+private: System::Void äåëåíèåÏîëèíîìîâToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	string value1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[1]->Value->ToString());
+	string key1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[0]->Value->ToString());
+
+	string value2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[1]->Value->ToString());
+	string key2 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec2]->Cells[0]->Value->ToString());
+
+	TPolinom* pol1 = men->Find(key1);
+	TPolinom* pol2 = men->Find(key2);
+	if (pol1 != nullptr && pol2 != nullptr) {
+		men->Insert(key1 + " / " + key2, *pol1 / *pol2);
+		setTabel();
+	}
+}
+private: System::Void ïğîèçâîäíàÿToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	CppWinDialogPeremForm::DialogPeremForm^ form = gcnew CppWinDialogPeremForm::DialogPeremForm("Ïğîèçâîäíàÿ ïî:");
+	form->ShowDialog();
+	string value1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[1]->Value->ToString());
+	string key1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[0]->Value->ToString());
+	TPolinom* pol1 = men->Find(key1);
+	if (pol1 != nullptr) {
+		men->Insert(key1 + "_der",pol1->derivative(form->c));
+	}
+	setTabel();
+}
+private: System::Void toolStripTextBox1_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void âû÷èñëåíèåÂÒî÷êåToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	CppWinDialogTochForm::DialogTochForm^ form = gcnew CppWinDialogTochForm::DialogTochForm();
+	form->ShowDialog();
+	string value1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[1]->Value->ToString());
+	string key1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[0]->Value->ToString());
+	TPolinom* pol1 = men->Find(key1);
+	if (pol1 != nullptr) {
+		postfix::calculator a((*pol1).ToPostfix());
+		auto var = a.GetVar();
+		for (auto& a : var) {
+			if (a.first == "x" || a.first == "X")
+				a.second = form->x;
+			if (a.first == "y" || a.first == "Y")
+				a.second = form->y;
+			if (a.first == "z" || a.first == "Z")
+				a.second = form->z;		
+		}
+		a.SetVar(var);
+		String^ s = gcnew String(to_string((int)a.Ansver()).c_str());
+
+		MessageBox::Show(s, L"Ğåçóëüòàò:", MessageBoxButtons::OK);
+			
+	}
+	
+
+
+}
+private: System::Void èíòåãğàëToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	CppWinDialogPeremForm::DialogPeremForm^ form = gcnew CppWinDialogPeremForm::DialogPeremForm("   Èíòåãğàë ïî:");
+	form->ShowDialog();
+	string value1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[1]->Value->ToString());
+	string key1 = msclr::interop::marshal_as<std::string>(Table1->Rows[tec1]->Cells[0]->Value->ToString());
+	TPolinom* pol1 = men->Find(key1);
+	if (pol1 != nullptr) {
+		men->Insert(key1 + "_ins", pol1->Integral(form->c));
+	}
+	setTabel();
+}
 };
 }
