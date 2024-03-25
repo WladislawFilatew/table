@@ -270,6 +270,11 @@ string TPolinom::ToString()
 	List<TMonom>::iterator it;
 	it = list.begin();
 	while (it != list.end()) {
+		if ((*it).coef == 0) {
+			it++;
+			continue;
+		}
+			
 		if ((*it).index == 0 && (int)(*it).coef ==  1) {
 			result += to_string(abs((int)(*it).coef));
 		}
@@ -309,8 +314,7 @@ inline TPolinom TPolinom::derivative(char c)
 	it = temp.list.begin();
 	while (it != temp.list.end()) {
 		(*it) = (*it).derivative(c);
-		if ((*it).coef == 0)
-			temp.list.erase(it);
+		it++;
 	}
 
 	return temp;
@@ -366,6 +370,10 @@ inline string TPolinom::ToPostfix()
 	List<TMonom>::iterator it;
 	it = list.begin();
 	while (it != list.end()) {
+		if ((*it).coef == 0) {
+			it++;
+			continue;
+		}
 		if ((*it).index == 0 && (int)(*it).coef == 1) {
 			result += to_string(abs((int)(*it).coef));
 		}

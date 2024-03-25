@@ -134,6 +134,7 @@ int main() {
 				TPolinom polinom = *GetPolinom(men, k);
 				cout << "¬ведите константу:" << endl;
 				cin >> n;
+				polinom = polinom * n;
 				men.Insert(k + "*" + to_string(n), polinom);
 				cout << *men.Find(k + "*" + to_string(n));
 				system("pause");
@@ -218,10 +219,10 @@ int main() {
 				nowwibor = 7;
 			}
 			if (nowwibor == 5) {
-				men.ChooseTable("???");
+				men.ChooseTable("HashList");
 				nowwibor = 7;
 			}
-			if (nowwibor == 5) {
+			if (nowwibor == 6) {
 				men.ChooseTable("???");
 				nowwibor = 7;
 			}
